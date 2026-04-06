@@ -1,680 +1,729 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayşe Sidenur Yılmaz | Biomedical AI Engineer</title>
-    <meta name="description" content="Ayşe Sidenur Yılmaz - Biomedical Engineer, Data Scientist, AI Researcher Portfolio">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* Modern ve Profesyonel Fontlar */
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ayşe Sidenur Yılmaz | Biomedical AI Engineer</title>
+<meta name="description" content="Ayşe Sidenur Yılmaz - Biomedical Engineer, Data Scientist, AI Researcher Portfolio">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06091a;
+  --bg2:#0d1224;
+  --sky:#38bdf8;
+  --violet:#818cf8;
+  --pink:#f472b6;
+  --glass:rgba(14,20,45,0.7);
+  --glass2:rgba(20,30,60,0.5);
+  --border:rgba(255,255,255,0.07);
+  --text:#e2e8f0;
+  --muted:#94a3b8;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#1e3a5f var(--bg)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-thumb{background:linear-gradient(#38bdf8,#818cf8);border-radius:4px}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+.orb{font-family:'Orbitron',sans-serif;letter-spacing:.04em}
 
-        body {
-            font-family: 'Outfit', sans-serif;
-            margin: 0;
-            overflow-x: hidden;
-            background-color: #0f172a;
-            color: #e2e8f0;
-        }
+/* SCROLL PROGRESS */
+#progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#38bdf8,#818cf8,#f472b6);width:0%;z-index:9999;transition:width .1s linear}
 
-        /* Başlıklar İçin Fütüristik Font */
-        .font-futuristic { 
-            font-family: 'Orbitron', sans-serif; 
-            letter-spacing: 0.05em;
-        }
+/* NAVBAR */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;padding:1rem 0;transition:all .3s}
+nav.scrolled{background:rgba(6,9,26,.92);backdrop-filter:blur(20px);padding:.6rem 0;border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
+.nav-brand{display:flex;flex-direction:column;line-height:1.2}
+.nav-brand .title{font-family:'Orbitron',sans-serif;font-size:.75rem;letter-spacing:.15em;color:var(--sky);text-transform:uppercase}
+.nav-brand .subtitle{font-size:.65rem;color:var(--muted);letter-spacing:.1em;margin-top:2px}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:.75rem;font-weight:600;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;text-decoration:none;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--sky);transition:width .3s;border-radius:2px}
+.nav-links a:hover,nav-links a.active{color:#fff}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
 
-        /* Arka Plan Efekti */
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at center, #1e293b 0%, #020617 100%);
-        }
+/* CANVAS */
+#bg-canvas{position:fixed;inset:0;z-index:-1}
 
-        /* Cam Efekti Panelleri */
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-        }
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;padding:7rem 2rem 4rem}
+.hero-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);border-radius:2rem;padding:.35rem 1rem;font-size:.75rem;font-weight:600;color:var(--sky);letter-spacing:.1em;text-transform:uppercase;margin-bottom:1.5rem}
+.hero-tag i{font-size:.7rem;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+h1.hero-title{font-family:'Orbitron',sans-serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:900;line-height:1.1;margin-bottom:1rem;background:linear-gradient(135deg,#fff 0%,var(--sky) 50%,var(--violet) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+h2.hero-name{font-size:clamp(1.4rem,3vw,2rem);font-weight:400;color:var(--sky);margin-bottom:1.5rem;letter-spacing:.05em}
+.hero-desc{color:var(--muted);font-size:1.05rem;max-width:480px;margin-bottom:2.5rem;font-weight:300;line-height:1.8}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.4rem;border-radius:.75rem;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .25s;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--sky),var(--violet));color:#fff;box-shadow:0 4px 20px rgba(56,189,248,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(56,189,248,.45)}
+.btn-ghost{background:rgba(255,255,255,.05);color:#fff;border:1px solid var(--border)}
+.btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
 
-        .glass-card {
-            background: rgba(30, 41, 59, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
+/* AVATAR */
+.avatar-wrap{position:relative;display:flex;justify-content:center;align-items:center}
+.avatar-ring{width:340px;height:340px;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center}
+.avatar-ring::before{content:'';position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(from 0deg,var(--sky),var(--violet),var(--pink),var(--sky));animation:spin 6s linear infinite;z-index:0}
+.avatar-ring::after{content:'';position:absolute;inset:-12px;border-radius:50%;border:1px dashed rgba(56,189,248,.2);animation:spin 20s linear infinite reverse}
+.avatar-img{width:100%;height:100%;border-radius:50%;object-fit:cover;position:relative;z-index:1;border:4px solid var(--bg)}
+.avatar-inner{width:320px;height:320px;border-radius:50%;overflow:hidden;position:relative;z-index:2;background:var(--bg2)}
+.orbit-icon{position:absolute;width:2.5rem;height:2.5rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;z-index:3}
+.orbit-icon:nth-child(1){top:-1rem;right:2rem;background:rgba(56,189,248,.15);color:var(--sky);border:1px solid rgba(56,189,248,.3);animation:float 3s ease-in-out infinite}
+.orbit-icon:nth-child(2){bottom:1rem;left:-1rem;background:rgba(129,140,248,.15);color:var(--violet);border:1px solid rgba(129,140,248,.3);animation:float 4s ease-in-out infinite .5s}
+.orbit-icon:nth-child(3){bottom:2rem;right:-1rem;background:rgba(244,114,182,.15);color:var(--pink);border:1px solid rgba(244,114,182,.3);animation:float 3.5s ease-in-out infinite 1s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
-        .glass-card:hover {
-            background: rgba(30, 41, 59, 0.8);
-            border-color: rgba(56, 189, 248, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px -10px rgba(56, 189, 248, 0.2);
-        }
+/* SECTIONS */
+section{padding:6rem 2rem;position:relative;z-index:1}
+.section-inner{max-width:1280px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:.5rem;color:var(--sky);font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.75rem}
+.section-label::before{content:'';width:2rem;height:2px;background:var(--sky);border-radius:2px}
+h2.s-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;margin-bottom:3.5rem;background:linear-gradient(135deg,#fff,var(--sky));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
-        .text-glow { text-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 3rem;
-            font-family: 'Orbitron', sans-serif;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0; bottom: -10px;
-            width: 60px; height: 4px;
-            background: #38bdf8;
-            border-radius: 2px;
-        }
+/* GLASS PANEL */
+.glass{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:1.5rem}
+.glass-card{background:var(--glass2);border:1px solid var(--border);border-radius:1.25rem;transition:all .3s}
+.glass-card:hover{border-color:rgba(56,189,248,.3);transform:translateY(-5px);box-shadow:0 20px 60px -15px rgba(56,189,248,.15)}
 
-        .nav-link {
-            position: relative;
-            cursor: pointer;
-            font-size: 0.85rem;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
+/* REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 2px;
-            bottom: -4px; left: 0;
-            background-color: #38bdf8;
-            transition: width 0.3s ease;
-        }
+/* VISION */
+#about{background:linear-gradient(180deg,var(--bg) 0%,rgba(13,18,36,.9) 100%)}
+.vision-box{background:linear-gradient(135deg,rgba(56,189,248,.05),rgba(129,140,248,.05));border:1px solid rgba(56,189,248,.15);border-radius:1.5rem;padding:3rem;position:relative;overflow:hidden}
+.vision-box::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);pointer-events:none}
+.vision-text{font-size:1.1rem;color:#cbd5e1;line-height:2;font-weight:300}
+.vision-text strong{color:#fff;font-weight:600}
+.vision-highlight{color:var(--sky);font-style:italic;font-weight:500}
+.vision-quote{margin-top:2rem;padding:1.5rem 2rem;border-left:3px solid var(--sky);background:rgba(56,189,248,.05);border-radius:0 1rem 1rem 0;font-size:1rem;color:var(--sky);font-style:italic}
 
-        .nav-link:hover::after { width: 100%; }
+/* SKILLS */
+#skills{background:rgba(13,18,36,.5)}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.skill-card{padding:2rem;border-radius:1.25rem;border:1px solid var(--border);background:var(--glass2);transition:all .3s;position:relative;overflow:hidden}
+.skill-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .3s;border-radius:1.25rem}
+.skill-card:nth-child(1)::before{background:linear-gradient(135deg,rgba(56,189,248,.05),transparent)}
+.skill-card:nth-child(2)::before{background:linear-gradient(135deg,rgba(244,114,182,.05),transparent)}
+.skill-card:nth-child(3)::before{background:linear-gradient(135deg,rgba(16,185,129,.05),transparent)}
+.skill-card:hover{transform:translateY(-5px)}
+.skill-card:hover::before{opacity:1}
+.skill-icon{width:3.5rem;height:3.5rem;border-radius:1rem;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem}
+.skill-icon.blue{background:rgba(56,189,248,.1);color:var(--sky);box-shadow:0 0 20px rgba(56,189,248,.1)}
+.skill-icon.red{background:rgba(244,114,182,.1);color:var(--pink);box-shadow:0 0 20px rgba(244,114,182,.1)}
+.skill-icon.green{background:rgba(16,185,129,.1);color:#10b981;box-shadow:0 0 20px rgba(16,185,129,.1)}
+.skill-card h3{font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:700;color:#fff;margin-bottom:1.25rem}
+.tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{padding:.3rem .8rem;border-radius:.5rem;font-size:.75rem;font-weight:500;letter-spacing:.03em}
+.tag-sky{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);color:#7dd3fc}
+.tag-violet{background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.2);color:#a5b4fc}
+.skill-list{list-style:none;space-y:0}
+.skill-list li{display:flex;align-items:center;gap:.75rem;color:#cbd5e1;font-size:.9rem;font-weight:300;padding:.5rem 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.skill-list li:last-child{border-bottom:none}
+.skill-list i{color:var(--pink);font-size:.85rem}
 
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
-            border-left: 2px solid rgba(56, 189, 248, 0.2);
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px; top: 6px;
-            width: 10px; height: 10px;
-            border-radius: 50%;
-            background: #38bdf8;
-            box-shadow: 0 0 10px #38bdf8;
-        }
+/* EXPERIENCE */
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--sky),var(--violet),transparent)}
+.tl-item{position:relative;padding-left:2.5rem;margin-bottom:2.5rem}
+.tl-dot{position:absolute;left:-6px;top:1.5rem;width:14px;height:14px;border-radius:50%;background:var(--sky);box-shadow:0 0 15px rgba(56,189,248,.6);z-index:2}
+.tl-card{background:rgba(14,20,45,.6);border:1px solid var(--border);border-radius:1.25rem;padding:2rem;transition:all .3s}
+.tl-card:hover{border-color:rgba(56,189,248,.25);background:rgba(14,20,45,.85)}
+.tl-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:.5rem}
+.tl-title{font-family:'Orbitron',sans-serif;font-size:.95rem;font-weight:700;color:#fff}
+.tl-company{color:var(--sky);font-weight:500;font-size:.9rem;margin-top:.25rem}
+.tl-date{font-size:.75rem;color:var(--muted);font-family:'Orbitron',sans-serif;letter-spacing:.05em;white-space:nowrap;background:rgba(56,189,248,.07);padding:.3rem .8rem;border-radius:.5rem;border:1px solid rgba(56,189,248,.15)}
+.tl-body{color:#94a3b8;font-size:.9rem;font-weight:300;line-height:1.8}
+.tl-body p+p{margin-top:.75rem}
+.tl-body strong{color:#e2e8f0;font-weight:600}
 
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
+/* IMPACT */
+#impact{background:linear-gradient(135deg,rgba(56,189,248,.04) 0%,rgba(129,140,248,.04) 100%)}
+.impact-card{background:linear-gradient(135deg,rgba(56,189,248,.06),rgba(129,140,248,.06));border:1px solid rgba(56,189,248,.2);border-radius:1.5rem;padding:3rem;position:relative;overflow:hidden}
+.impact-card::after{content:'"';position:absolute;bottom:-2rem;right:2rem;font-size:12rem;color:rgba(56,189,248,.04);font-family:Georgia,serif;line-height:1}
+.impact-quote{font-size:1.05rem;color:#cbd5e1;line-height:2;font-style:italic;border-left:3px solid var(--sky);padding-left:2rem}
 
-        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        
-        .delay-100 { animation-delay: 0.1s; }
-        .delay-200 { animation-delay: 0.2s; }
-        .delay-300 { animation-delay: 0.3s; }
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.proj-card{background:var(--glass2);border:1px solid var(--border);border-radius:1.5rem;padding:2rem;display:flex;flex-direction:column;transition:all .35s;position:relative;overflow:hidden}
+.proj-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(56,189,248,.04),rgba(129,140,248,.04));opacity:0;transition:opacity .3s;border-radius:1.5rem}
+.proj-card:hover{transform:translateY(-6px);border-color:rgba(56,189,248,.3);box-shadow:0 25px 60px -15px rgba(56,189,248,.15)}
+.proj-card:hover::before{opacity:1}
+.proj-card.featured{border-left:3px solid var(--sky)}
+.proj-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;gap:1rem}
+.proj-title{font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:700;color:#fff}
+.badges{display:flex;flex-direction:column;gap:.4rem;align-items:flex-end;flex-shrink:0}
+.badge{font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.25rem .7rem;border-radius:2rem}
+.badge-sky{background:rgba(56,189,248,.12);color:var(--sky);border:1px solid rgba(56,189,248,.25)}
+.badge-purple{background:rgba(129,140,248,.12);color:var(--violet);border:1px solid rgba(129,140,248,.25)}
+.badge-green{background:rgba(16,185,129,.12);color:#34d399;border:1px solid rgba(16,185,129,.25)}
+.badge-pulse{animation:pulse 2s infinite}
+.proj-desc{color:#94a3b8;font-size:.9rem;font-weight:300;line-height:1.8;flex:1}
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.edu-item{position:relative;padding-left:2rem;border-left:2px solid rgba(56,189,248,.2);margin-bottom:3rem}
+.edu-dot{position:absolute;left:-7px;top:4px;width:12px;height:12px;border-radius:50%;background:var(--sky);box-shadow:0 0 10px rgba(56,189,248,.5)}
+.edu-uni{font-family:'Orbitron',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+.edu-degree{color:var(--sky);font-size:.95rem;font-weight:500;margin-bottom:.25rem}
+.edu-date{font-size:.75rem;color:var(--muted);font-family:'Orbitron',sans-serif;letter-spacing:.05em;margin-bottom:1rem}
+.edu-thesis{background:rgba(56,189,248,.04);border:1px solid rgba(56,189,248,.1);border-radius:.75rem;padding:1rem;font-size:.85rem;color:#94a3b8;line-height:1.7;font-style:italic}
+.cert-list{list-style:none}
+.cert-item{display:flex;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.cert-item:last-child{border-bottom:none}
+.cert-icon{color:var(--sky);font-size:1rem;margin-top:.15rem;flex-shrink:0;filter:drop-shadow(0 0 5px rgba(56,189,248,.4))}
+.cert-name{font-family:'Orbitron',sans-serif;font-size:.85rem;font-weight:700;color:#e2e8f0;line-height:1.4}
+.cert-org{font-size:.75rem;color:var(--muted);margin-top:.2rem}
 
-        .hover-line { position: relative; display: inline-block; cursor: default; }
-        .hover-line::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 3px;
-            bottom: -4px; left: 0;
-            background-color: #38bdf8;
-            transition: width 0.3s ease-out;
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-        }
-        .hover-line:hover::after { width: 100%; }
-    </style>
+/* PUBLICATIONS */
+.pubs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.pub-card{background:var(--glass2);border:1px solid var(--border);border-radius:1.25rem;padding:2rem}
+.pub-card h3{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.pub-item{padding:.75rem 0;border-bottom:1px solid rgba(255,255,255,.05);transition:border-color .2s}
+.pub-item:last-child{border-bottom:none}
+.pub-item:hover{border-bottom-color:rgba(56,189,248,.3)}
+.pub-item a{text-decoration:none;display:block}
+.pub-authors{font-family:'Orbitron',sans-serif;font-size:.75rem;color:#e2e8f0}
+.pub-title-text{font-size:.85rem;color:#94a3b8;margin:.35rem 0;line-height:1.5;font-weight:300}
+.pub-journal{font-size:.75rem;color:var(--sky);font-style:italic}
+.pub-item a:hover .pub-authors,.pub-item a:hover .pub-title-text{color:#fff}
+.award-item{display:flex;align-items:flex-start;gap:1rem;padding:1.25rem;background:rgba(255,255,255,.03);border-radius:1rem;border:1px solid rgba(255,255,255,.06);margin-bottom:1rem;transition:all .3s}
+.award-item:hover{background:rgba(56,189,248,.04);border-color:rgba(56,189,248,.2)}
+.award-star{font-size:1.5rem;color:#fbbf24;filter:drop-shadow(0 0 8px rgba(251,191,36,.4));margin-top:.1rem}
+.award-name{font-family:'Orbitron',sans-serif;font-size:.85rem;color:#fff;font-weight:700;line-height:1.4}
+.award-year{font-size:.75rem;color:var(--muted);margin-top:.25rem;font-family:'Orbitron',sans-serif}
+
+/* REFERENCES */
+.refs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.ref-card{background:var(--glass2);border:1px solid var(--border);border-left:3px solid var(--sky);border-radius:1.25rem;padding:2rem;display:flex;align-items:center;gap:1.5rem;transition:all .3s}
+.ref-card:hover{transform:translateY(-4px);border-color:rgba(56,189,248,.4)}
+.ref-avatar{width:4rem;height:4rem;border-radius:50%;background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(129,140,248,.15));border:1px solid rgba(56,189,248,.2);display:flex;align-items:center;justify-content:center;color:var(--sky);font-size:1.4rem;flex-shrink:0}
+.ref-name{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:700;color:#fff}
+.ref-role{font-size:.8rem;color:var(--muted);margin-top:.25rem;font-weight:400}
+
+/* CONTACT / FOOTER */
+footer{border-top:1px solid var(--border);background:linear-gradient(180deg,rgba(13,18,36,.5) 0%,var(--bg) 100%);padding:5rem 2rem 3rem;text-align:center}
+.footer-title{font-family:'Orbitron',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;background:linear-gradient(135deg,#fff,var(--sky),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:3rem}
+.contact-grid{display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;margin-bottom:3rem}
+.contact-item{display:flex;align-items:center;gap:.75rem;color:#94a3b8;font-size:.95rem;text-decoration:none;transition:color .2s}
+.contact-item i{color:var(--sky);font-size:1.1rem}
+.contact-item:hover{color:#fff}
+.social-links{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem}
+.social-btn{width:3rem;height:3rem;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;transition:all .25s;border:1px solid var(--border);color:#94a3b8;background:rgba(255,255,255,.03)}
+.social-btn:hover{transform:translateY(-3px);border-color:rgba(56,189,248,.4);color:var(--sky);background:rgba(56,189,248,.08);box-shadow:0 8px 25px rgba(56,189,248,.2)}
+.footer-copy{font-size:.8rem;color:rgba(148,163,184,.4);letter-spacing:.05em}
+
+/* RESPONSIVE */
+@media(max-width:1024px){.skills-grid{grid-template-columns:1fr 1fr}.hero-grid{gap:2rem}}
+@media(max-width:768px){
+  .hero-grid{grid-template-columns:1fr;text-align:center}.hero-desc{margin:0 auto 2rem}
+  .hero-btns{justify-content:center}
+  .avatar-ring{width:260px;height:260px}.avatar-inner{width:240px;height:240px}
+  .skills-grid,.projects-grid,.pubs-grid,.refs-grid,.edu-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .tl-header{flex-direction:column}
+}
+</style>
 </head>
-<body class="antialiased min-h-screen flex flex-col">
+<body>
 
-    <div id="canvas-container">
-        <canvas id="neuroCanvas"></canvas>
+<div id="progress-bar"></div>
+<canvas id="bg-canvas"></canvas>
+
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="title">Biomedical Engineer</span>
+      <span class="subtitle">Data Scientist &nbsp;|&nbsp; AI Researcher</span>
     </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Vision</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#references">References</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-    <!-- Navigasyon Çubuğu -->
-    <nav class="fixed w-full z-50 transition-all duration-300 p-4">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-center glass-panel rounded-full px-8 py-3 w-full border border-white/5">
-                <!-- Sol Kısım: Unvanlar -->
-                <div class="flex flex-col items-start justify-center leading-tight select-none cursor-default">
-                    <span class="text-sm md:text-base text-sky-400 font-bold tracking-widest uppercase font-futuristic">Biomedical Engineer</span>
-                    <div class="text-[10px] md:text-xs text-slate-400 font-medium tracking-wider mt-0.5">
-                        Data Scientist <span class="text-sky-600 mx-1">|</span> AI Researcher
-                    </div>
-                </div>
-                
-                <!-- Sağ Kısım: Menü -->
-                <div class="hidden lg:flex space-x-6 text-slate-300">
-                    <a href="#home" class="nav-link hover:text-white uppercase">Home</a>
-                    <a href="#about" class="nav-link hover:text-white uppercase">My Vision</a>
-                    <a href="#skills" class="nav-link hover:text-white uppercase">Skills</a>
-                    <a href="#experience" class="nav-link hover:text-white uppercase">Experience</a>
-                    <a href="#impact" class="nav-link hover:text-white uppercase">Impact</a>
-                    <a href="#projects" class="nav-link hover:text-white uppercase">Projects</a>
-                    <a href="#education" class="nav-link hover:text-white uppercase">Education</a>
-                    <a href="#publications" class="nav-link hover:text-white uppercase">Publications</a>
-                    <a href="#references" class="nav-link hover:text-white uppercase">References</a>
-                    <a href="#contact" class="nav-link hover:text-white uppercase">Contact</a>
-                </div>
-            </div>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-grid">
+    <div class="order-1 reveal">
+      <div class="hero-tag"><i class="fas fa-dna"></i> Biomedical AI Engineer</div>
+      <h1 class="hero-title">Pioneering AI<br>in Biomedical</h1>
+      <h2 class="hero-name">Ayşe Sidenur YILMAZ</h2>
+      <p class="hero-desc">Specialized in Medical AI, Computer Vision, and Biomechanics. Innovating at the intersection of medical science and sports analytics.</p>
+      <div class="hero-btns">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yilmazysesidenur@gmail.com" target="_blank" class="btn btn-primary"><i class="fas fa-envelope"></i> Get In Touch</a>
+        <a href="https://www.linkedin.com/in/ayse-yilmaz-7b824a308" target="_blank" class="btn btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://github.com/ASY-crypto" target="_blank" class="btn btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+      </div>
+    </div>
+    <div class="order-2 avatar-wrap reveal reveal-delay-2">
+      <div class="avatar-ring">
+        <div class="orbit-icon"><i class="fas fa-brain"></i></div>
+        <div class="orbit-icon"><i class="fas fa-heartbeat"></i></div>
+        <div class="orbit-icon"><i class="fas fa-dna"></i></div>
+        <div class="avatar-inner">
+          <img class="avatar-img" src="https://raw.githubusercontent.com/ASY-crypto/AyseYilmaz.github.io/refs/heads/main/src/resmim.jpeg" alt="Ayşe Sidenur Yılmaz" onerror="this.style.display='none'">
         </div>
-    </nav>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Bölümü -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-32 pb-12">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center w-full">
-            <div class="order-2 md:order-1 flex flex-col items-start text-left">
-                <h1 class="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight fade-in-up delay-100 text-glow font-futuristic">
-                    Pioneering <span class="text-sky-400">AI</span> in <br class="hidden md:block"> Biomedical
-                </h1>
-                
-                <!-- İsmin Yazı Tipi ve Kalınlığı Düzenlendi (Outfit kullanılarak font-normal yapıldı) -->
-                <h2 class="text-3xl md:text-5xl text-sky-400 font-normal mb-8 fade-in-up delay-200 tracking-wide">
-                    Ayşe Sidenur YILMAZ
-                </h2>
+<!-- MY VISION -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label"><i class="fas fa-eye"></i> About Me</div>
+    <h2 class="s-title">My Vision</h2>
+    <div class="vision-box reveal">
+      <p class="vision-text">
+        As a Biomedical Engineer, I design technology not only for efficiency but for sustainability. By leveraging <strong>Deep Learning</strong> and <strong>Computer Vision</strong>, I analyze not just how fast a system performs, but how resilient its foundations truly are.
+      </p>
+      <p class="vision-text" style="margin-top:1.5rem">
+        My expertise lies in cutting through the noise of complex data to uncover invisible risks regarding <strong>human health</strong> and system integrity. My goal is to architect solutions that deliver <strong>proactive foresight</strong> rather than reactive fixes.
+      </p>
+      <div class="vision-quote">
+        I am driven by a core engineering philosophy: You should never wait for a crisis to strengthen a system — <span class="vision-highlight">the best time to repair the roof is when the sun is shining.</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-xl leading-relaxed fade-in-up delay-300 font-light">
-                    Specialized in Medical AI, Computer Vision, and Biomechanics. 
-                    Currently innovating at the intersection of medical science and sports analytics.
-                </p>
-
-                <div class="flex flex-row gap-3 fade-in-up delay-300 items-center">
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yilmazysesidenur@gmail.com" target="_blank" class="flex items-center gap-2 px-5 py-2.5 bg-white text-slate-900 rounded-lg font-bold hover:bg-sky-50 transition-all shadow-lg transform hover:-translate-y-0.5 text-sm">
-                        <i class="fas fa-envelope text-lg text-sky-600"></i>
-                        <span>E-mail</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ayse-yilmaz-7b824a308" target="_blank" class="flex items-center gap-2 px-5 py-2.5 bg-white rounded-lg font-bold hover:bg-sky-50 transition-all shadow-lg transform hover:-translate-y-0.5 text-sm">
-                        <i class="fab fa-linkedin text-lg" style="color: #0A66C2;"></i>
-                        <span style="color: #0A66C2;">LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/ASY-crypto?tab=repositories" target="_blank" class="flex items-center gap-2 px-5 py-2.5 bg-white text-slate-900 rounded-lg font-bold hover:bg-sky-50 transition-all shadow-lg transform hover:-translate-y-0.5 text-sm">
-                        <i class="fab fa-github text-lg text-slate-900"></i>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="order-1 md:order-2 flex justify-center fade-in-up delay-200">
-                <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full glass-panel flex items-center justify-center border-4 border-sky-500/10 backdrop-blur-xl overflow-visible p-1">
-                    <img src="https://raw.githubusercontent.com/ASY-crypto/AyseYilmaz.github.io/refs/heads/main/src/resmim.jpeg" 
-                         alt="Ayşe Sidenur Yılmaz" 
-                         class="w-full h-full object-cover rounded-full shadow-[0_0_20px_rgba(56,189,248,0.3)] border-2 border-white/10"
-                         onerror="this.src='https://via.placeholder.com/400?text=Profile+Photo'">
-                    
-                    <div class="absolute -inset-6 border border-sky-400/20 rounded-full animate-[spin_12s_linear_infinite] pointer-events-none"></div>
-                    <div class="absolute -inset-12 border border-dashed border-sky-400/10 rounded-full animate-[spin_20s_linear_infinite_reverse] pointer-events-none"></div>
-                </div>
-            </div>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label"><i class="fas fa-microchip"></i> Expertise</div>
+    <h2 class="s-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon blue"><i class="fas fa-code"></i></div>
+        <h3>Core Technologies</h3>
+        <div class="tags">
+          <span class="tag tag-sky">Python</span>
+          <span class="tag tag-sky">Machine Learning</span>
+          <span class="tag tag-sky">Deep Learning</span>
+          <span class="tag tag-sky">OpenCV</span>
+          <span class="tag tag-sky">YOLO Algorithms</span>
+          <span class="tag tag-sky">R-CNN</span>
+          <span class="tag tag-sky">C# Programming</span>
+          <span class="tag tag-sky">NLP</span>
+          <span class="tag tag-sky">LLMs & AI Agents</span>
+          <span class="tag tag-sky">SQL (PostgreSQL)</span>
         </div>
-    </section>
-
-    <!-- My Vision -->
-    <section id="about" class="py-24 relative z-10">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 section-title font-futuristic text-glow">My Vision</h2>
-            <div class="glass-panel p-10 rounded-3xl border border-sky-500/10 shadow-xl">
-                <p class="text-lg md:text-xl text-slate-200 leading-relaxed font-light">
-                    As a Biomedical Engineer, I design technology not only for efficiency but for sustainability. By leveraging <strong class="text-white font-bold">Deep Learning</strong> and <strong class="text-white font-bold">Computer Vision</strong>, I analyze not just how fast a system performs, but how resilient its foundations truly are.
-                    <br><br>
-                    My expertise lies in cutting through the noise of complex data to uncover invisible risks regarding human health and system integrity. My goal is to architect solutions that deliver proactive foresight rather than reactive fixes.
-                    <br><br>
-                    I am driven by a core engineering philosophy: You should never wait for a crisis to strengthen a system; <span class="text-sky-400 italic font-medium">the best time to repair the roof is when the sun is shining.</span>
-                </p>
-            </div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1">
+        <div class="skill-icon red"><i class="fas fa-heartbeat"></i></div>
+        <h3>Biomedical Domain</h3>
+        <ul class="skill-list">
+          <li><i class="fas fa-check-circle"></i> Biomechanics & Kinematics</li>
+          <li><i class="fas fa-check-circle"></i> Medical Imaging (DICOM)</li>
+          <li><i class="fas fa-check-circle"></i> HPLC Systems</li>
+          <li><i class="fas fa-check-circle"></i> ISO 13485 Manufacturing</li>
+          <li><i class="fas fa-check-circle"></i> Device Calibration (IEC 60601)</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal reveal-delay-2">
+        <div class="skill-icon green"><i class="fas fa-tools"></i></div>
+        <h3>Tools & Frameworks</h3>
+        <div class="tags">
+          <span class="tag tag-violet">PyTorch</span>
+          <span class="tag tag-violet">TensorFlow</span>
+          <span class="tag tag-violet">Pandas & NumPy</span>
+          <span class="tag tag-violet">Matplotlib</span>
+          <span class="tag tag-violet">SolidWorks 3D</span>
+          <span class="tag tag-violet">MATLAB</span>
+          <span class="tag tag-violet">Docker</span>
+          <span class="tag tag-violet">AWS / Azure</span>
+          <span class="tag tag-violet">Generative AI</span>
+          <span class="tag tag-violet">VS Code</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Technical Skills -->
-    <section id="skills" class="py-24 bg-slate-900/40 relative z-10">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center font-futuristic text-glow">Technical Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl">
-                    <div class="w-14 h-14 rounded-2xl bg-sky-500/20 flex items-center justify-center mb-6 text-sky-400 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
-                        <i class="fas fa-code text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 text-white hover-line font-futuristic">Core Technologies</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">Python</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">Machine Learning</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">Deep Learning</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">OpenCV</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">YOLO Algorithms</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">R-CNN Algorithms</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">C# Programming</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">NLP</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">LLMs & AI Agents</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-sky-500/20 rounded-lg text-sm text-sky-200">SQL (PostgreSQL/MySQL)</span>
-                    </div>
-                </div>
-                <div class="glass-card p-8 rounded-2xl">
-                    <div class="w-14 h-14 rounded-2xl bg-red-500/20 flex items-center justify-center mb-6 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
-                        <i class="fas fa-heartbeat text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 text-white hover-line font-futuristic">Biomedical</h3>
-                    <ul class="space-y-3 text-slate-300 text-base font-light">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-3"></i> Biomechanics & Kinematics</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-3"></i> Medical Imaging (DICOM)</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-3"></i> HPLC Systems</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-3"></i> ISO 13485 Manufacturing</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-red-500 mr-3"></i> Device Calibration</li>
-                    </ul>
-                </div>
-                <div class="glass-card p-8 rounded-2xl">
-                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 flex items-center justify-center mb-6 text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                        <i class="fas fa-tools text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 text-white hover-line font-futuristic">Tools & Frameworks</h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">PyTorch</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">Pandas & NumPy</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">Tensorflow</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">Matplotlib</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">SolidWorks (3D)</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">VS Code</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">MATLAB</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">Generative AI Tools</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">Cloud Platforms (AWS/Azure)</span>
-                        <span class="px-3 py-1.5 bg-sky-500/10 border border-emerald-500/20 rounded-lg text-sm text-sky-200">Docker</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label"><i class="fas fa-briefcase"></i> Career</div>
+    <h2 class="s-title">Experience</h2>
+    <div class="timeline">
 
-    <!-- Experience: EKSİKSİZ TÜM DETAYLAR -->
-    <section id="experience" class="py-24 relative z-10">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title font-futuristic text-glow">Experience</h2>
-            <div class="space-y-12">
-                <!-- Cyber Gear Intern -->
-                <div class="timeline-item">
-                    <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:bg-slate-800/60 transition-colors">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white hover-line font-futuristic">Data Scientist Intern</h3>
-                                <p class="text-sky-400 font-medium mt-1">Cyber Gear | Dubai, UAE (Remote)</p>
-                            </div>
-                            <span class="text-slate-400 text-sm mt-2 md:mt-0 font-mono">March 2026 – Present</span>
-                        </div>
-                        <div class="text-slate-300 font-light space-y-4 leading-relaxed">
-                            <p>
-                                Taking an active role in <strong>The Bluwhale AI</strong> (an initiative by Cyber Gear), participating in intensive academy modules focused on <strong>applied artificial intelligence</strong>, <strong>data science methodologies</strong>, and industry-standard <strong>machine learning pipelines</strong>.
-                            </p>
-                            <p>
-                                Assisting the data science team with preliminary <strong>data analysis</strong>, literature reviews, and exploring current industry trends to support upcoming <strong>AI-driven projects</strong>.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Data Science Intern -->
-                <div class="timeline-item">
-                    <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:bg-slate-800/60 transition-colors">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white hover-line font-futuristic">Data Science Intern (Long-Term)</h3>
-                                <p class="text-sky-400 font-medium mt-1">Europe Coding School & Ecodation | Istanbul (Remote)</p>
-                            </div>
-                            <span class="text-slate-400 text-sm mt-2 md:mt-0 font-mono">Jan 2025 – July 2025</span>
-                        </div>
-                        <div class="text-slate-300 font-light space-y-4 leading-relaxed">
-                            <p>
-                                Leveraged <strong>Pandas</strong> and <strong>NumPy</strong> to perform comprehensive data cleaning, preprocessing, and Exploratory Data Analysis (EDA) on complex datasets, ensuring data integrity and optimization for modeling.
-                            </p>
-                            <p>
-                                Developed and evaluated machine learning models using <strong>Scikit-learn</strong>, while utilizing <strong>Seaborn</strong> and <strong>Matplotlib</strong> to visualize performance metrics and communicate actionable insights.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Long-Term -->
-                <div class="timeline-item">
-                    <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:bg-slate-800/60 transition-colors">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white hover-line font-futuristic">Biomedical Engineer Intern (Long-Term)</h3>
-                                <p class="text-sky-400 font-medium mt-1">Disera Medical Supplies Logistics | Izmir, Turkey</p>
-                            </div>
-                            <span class="text-slate-400 text-sm mt-2 md:mt-0 font-mono">Feb 2024 – May 2024</span>
-                        </div>
-                        <div class="text-slate-300 font-light space-y-4 leading-relaxed">
-                            <p>
-                                Operation and technical maintenance of <strong>Goldsite GSH-60 Automatic HPLC HbA1c Analyzers</strong>. 
-                                Received certification directly from <strong>GOLDSITE Inc. (China)</strong>. Managed quality control for IVD devices.
-                                Contributed to the R&D and production processes of diagnostic medical devices (Vacuum Blood Collection Systems).
-                            </p>
-                            <p>
-                                <strong>Diagnostic Technology Insight:</strong> Gained comprehensive knowledge of the working principles of Abbott i2000 Hormone Analyzers and Abbott Architect c16000 Biochemistry Analyzers. Observed and analyzed the operational mechanisms of Mindray Hematology devices.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Short-Term R&D -->
-                <div class="timeline-item">
-                    <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:bg-slate-800/60 transition-colors">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white hover-line font-futuristic">Biomedical Engineer Intern (R&D & Quality) (Short-Term)</h3>
-                                <p class="text-sky-400 font-medium mt-1">Prodorth Spine | Izmir, Turkey</p>
-                            </div>
-                            <span class="text-slate-400 text-sm mt-2 md:mt-0 font-mono">July 2022 – Aug 2022</span>
-                        </div>
-                        <div class="text-slate-300 font-light space-y-2 leading-relaxed">
-                            <p>Manufacturing of Class IIb spinal implants (ISO 13485). Assisted in dimensional verification and biomechanical testing protocols (compression, torsion) per ASTM/ISO standards.</p>
-                            <p>Assisted in the CAD design and quality control processes of medical devices in compliance with ISO standards and MDR processing.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Clinical Intern -->
-                <div class="timeline-item">
-                    <div class="bg-slate-800/40 p-8 rounded-2xl border border-slate-700/50 hover:bg-slate-800/60 transition-colors">
-                        <div class="flex flex-col md:flex-row justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-white hover-line font-futuristic">Clinical Engineering Intern (Short-Term)</h3>
-                                <p class="text-sky-400 font-medium mt-1">Pamukkale University Hospitals | Denizli, Turkey</p>
-                            </div>
-                            <span class="text-slate-400 text-sm mt-2 md:mt-0 font-mono">June 2022 – July 2022</span>
-                        </div>
-                        <p class="text-slate-300 font-light leading-relaxed">Performed preventive maintenance and calibration on life-support equipment (Defibrillators, Infusion Pumps) and electrical safety tests (IEC 60601). Managed critical medical device operations in a high-volume clinical setting. Collaborated with medical staff to optimize the workflow of biomedical technologies.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Recognition & Impact -->
-    <section id="impact" class="py-24 bg-slate-900/40 relative z-10 text-glow">
-        <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 section-title font-futuristic">Recognition & Impact</h2>
-            <div class="glass-card p-10 rounded-3xl border border-sky-500/10 shadow-xl">
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-3 font-futuristic">
-                    <i class="fas fa-landmark text-sky-400"></i>
-                    Presentation to the Former President of the TRNC
-                </h3>
-                <p class="text-lg text-slate-200 leading-relaxed font-light italic border-l-4 border-sky-500/30 pl-6">
-                    "Following our university's participation in TEKNOFEST, I, as team leader, presented a strategic briefing to the Former President of the Turkish Republic of Northern Cyprus (TRNC), Mr. Ersin Tatar, to honor the innovators on our campus. I successfully transformed complex biomedical AI architectures into a clear vision for proactive healthcare, demonstrating my ability to communicate the value of high-risk engineering to senior leadership."
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects & Research -->
-    <section id="projects" class="py-24 relative z-10">
-        <div class="max-w-6xl mx-auto px-6 text-glow">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title font-futuristic">Projects & Research</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Physio Guard -->
-                <div class="glass-card p-8 rounded-2xl flex flex-col border-l-4 border-l-sky-500 shadow-lg">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-white hover-line font-futuristic">Physio Guard</h3>
-                        <div class="flex flex-col items-end gap-1">
-                            <span class="text-[10px] bg-sky-500/20 text-sky-300 px-3 py-1 rounded-full font-bold uppercase tracking-wider">Independent Project</span>
-                            <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full font-bold uppercase tracking-wider animate-pulse">Ongoing</span>
-                        </div>
-                    </div>
-                    <p class="text-slate-300 mb-4 font-light flex-grow leading-relaxed">
-                        AI-Powered Real-Time Biomechanical Analysis for Physical Therapy. This independent initiative focuses on utilizing advanced pose estimation algorithms to monitor patient movements, offering real-time corrective feedback and automated progress tracking for rehabilitation processes.
-                    </p>
-                </div>
-                <!-- VisionaryHealth -->
-                <div class="glass-card p-8 rounded-2xl flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-white hover-line font-futuristic">VisionaryHealth</h3>
-                        <span class="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full font-medium">TEKNOFEST 2024 Finalist</span>
-                    </div>
-                    <p class="text-sm text-slate-400 mb-4 font-mono">Team Captain</p>
-                    <p class="text-slate-300 mb-4 font-light flex-grow leading-relaxed">
-                        Computer Vision Analysis of Mammography & NLP in Radiology Reports. Developed a hybrid AI model to analyze textual radiology reports and images for enhanced diagnostic accuracy.
-                    </p>
-                </div>
-                <!-- TÜBİTAK -->
-                <div class="glass-card p-8 rounded-2xl flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-white hover-line font-futuristic">TÜBİTAK 2209-A Project</h3>
-                        <span class="text-xs bg-green-500/20 text-green-300 px-3 py-1 rounded-full font-medium">Funded Grant</span>
-                    </div>
-                    <p class="text-slate-300 mb-4 font-light flex-grow leading-relaxed">
-                        <strong>AI-Supported Detection of Anomalies in Spine X-Ray Images.</strong> Secured grant funding to develop a Deep Learning model detecting scoliosis and fractures, integrated into a PyQt5 GUI.
-                    </p>
-                </div>
-                <!-- BioMed-AI -->
-                <div class="glass-card p-8 rounded-2xl flex flex-col">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-white hover-line font-futuristic">BioMed-AI</h3>
-                        <span class="text-xs bg-purple-500/20 text-purple-300 px-3 py-1 rounded-full font-medium">TEKNOFEST 2023 Finalist</span>
-                    </div>
-                    <p class="text-sm text-slate-400 mb-4 font-mono">Team Captain</p>
-                    <p class="text-slate-300 mb-4 font-light flex-grow leading-relaxed">
-                        Led the team in developing algorithms for disease identification from medical imaging data.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education & Certifications -->
-    <section id="education" class="py-24 bg-slate-900/40 relative z-10 text-glow">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
             <div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 section-title font-futuristic">Education</h2>
-                <div class="space-y-10">
-                    <div class="relative pl-8 border-l-2 border-slate-700">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 bg-sky-500 rounded-full shadow-[0_0_10px_#38bdf8]"></div>
-                        <h3 class="text-2xl font-bold text-white hover-line font-futuristic">Pamukkale University</h3>
-                        <p class="text-sky-400 text-lg font-medium">BS in Biomedical Engineering</p>
-                        <p class="text-slate-500 text-sm mb-4 font-mono mt-1">Sep 2020 – June 2024 | GPA: 3.48/4.00</p>
-                        <p class="text-slate-300 text-sm italic bg-slate-800/50 p-4 rounded-lg border border-slate-700/50 leading-relaxed">
-                            Thesis: "Automatic Detection Of Disc Space Narrowing In Cervical And Lumbar Spine X-Ray Images: A Deep Learning Approach"
-                        </p>
-                    </div>
-                    <div class="relative pl-8 border-l-2 border-slate-700">
-                        <div class="absolute -left-[9px] top-0 w-4 h-4 bg-slate-600 rounded-full"></div>
-                        <h3 class="text-2xl font-bold text-white hover-line font-futuristic">Atatürk University</h3>
-                        <p class="text-sky-400 text-lg font-medium">Associate Degree in Computer Programming</p>
-                        <p class="text-slate-500 text-sm mb-4 font-mono mt-1">Sep 2021 – June 2023 | GPA: 2.88/4.00</p>
-                        <p class="text-slate-300 text-sm font-light leading-relaxed">Coursework: Database Management, Web Design, Visual Programming, Network Technologies.</p>
-                    </div>
-                </div>
+              <div class="tl-title">Data Scientist Intern</div>
+              <div class="tl-company">Cyber Gear — The Bluwhale AI | Dubai, UAE (Remote)</div>
             </div>
+            <span class="tl-date">March 2026 – Present</span>
+          </div>
+          <div class="tl-body">
+            <p>Taking an active role in <strong>The Bluwhale AI</strong> initiative, participating in intensive academy modules focused on <strong>applied artificial intelligence</strong>, data science methodologies, and industry-standard machine learning pipelines.</p>
+            <p>Assisting the data science team with preliminary data analysis, literature reviews, and exploring current industry trends to support upcoming AI-driven projects.</p>
+          </div>
+        </div>
+      </div>
 
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
             <div>
-                <h2 class="text-3xl md:text-4xl font-bold mb-8 section-title font-futuristic">Certifications</h2>
-                <div class="glass-panel p-8 rounded-2xl max-h-[550px] overflow-y-auto">
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-certificate text-sky-500 mt-1 text-xl shadow-[0_0_10px_rgba(56,189,248,0.3)]"></i>
-                            <div>
-                                <strong class="text-white block text-lg leading-tight font-futuristic">Data Science Expertise</strong>
-                                <span class="text-slate-400 text-sm">Europe Coding School (Amsterdam) (Online) | 2026</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-certificate text-sky-500 mt-1 text-xl shadow-[0_0_10px_rgba(56,189,248,0.3)]"></i>
-                            <div><strong class="text-white block text-lg leading-tight font-futuristic">Goldsite GSH-60 Technical Cert.</strong><span class="text-slate-400 text-sm">GOLDSITE Inc. | 2024</span></div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-certificate text-sky-500 mt-1 text-xl"></i>
-                            <div>
-                                <strong class="text-white block text-lg leading-tight font-futuristic">7th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT)</strong>
-                                <span class="text-slate-400 text-sm">Conference Participation | 2023</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-certificate text-sky-500 mt-1 text-xl"></i>
-                            <div>
-                                <strong class="text-white block text-lg leading-tight font-futuristic">Integrated Quality Mgmt Systems (TSC Career)</strong>
-                                <span class="text-slate-400 text-sm">ISO 9001, 13485, 15189, 17025, 45001, GDP, GHP, GLP, GMP | 2023</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-certificate text-sky-500 mt-1 text-xl"></i>
-                            <div><strong class="text-white block text-lg leading-tight font-futuristic">AI Expertise Training</strong><span class="text-slate-400 text-sm">Riscon Academy & Opsiyon Academy | 2023</span></div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-certificate text-sky-500 mt-1 text-xl"></i>
-                            <div>
-                                <strong class="text-white block text-lg leading-tight font-futuristic">Solidworks 3D Design Training</strong>
-                                <span class="text-slate-400 text-sm">Design Course | 2022</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-certificate text-sky-500 mt-1 text-xl"></i>
-                            <div><strong class="text-white block text-lg leading-tight font-futuristic">C# Programming Course</strong><span class="text-slate-400 text-sm">Ecodation Technology | 2022</span></div>
-                        </li>
-                    </ul>
-                </div>
+              <div class="tl-title">Data Science Intern (Long-Term)</div>
+              <div class="tl-company">Europe Coding School & Ecodation | Istanbul (Remote)</div>
             </div>
+            <span class="tl-date">Jan 2025 – July 2025</span>
+          </div>
+          <div class="tl-body">
+            <p>Leveraged <strong>Pandas</strong> and <strong>NumPy</strong> for comprehensive data cleaning, preprocessing, and EDA on complex datasets. Developed ML models using <strong>Scikit-learn</strong> and visualized insights with Seaborn and Matplotlib.</p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Publications & Awards -->
-    <section id="publications" class="py-24 relative z-10 text-glow">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-8 section-title font-futuristic">Publications & Awards</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Publications -->
-                <div class="glass-panel p-8 rounded-2xl border border-white/5">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3 hover-line font-futuristic"><i class="fas fa-book-open text-sky-400"></i> Publications</h3>
-                    <ul class="space-y-6 text-sm text-slate-300">
-                        <li class="pl-4 border-l-2 border-sky-500/30 hover:border-sky-500 transition-colors">
-                            <a href="https://ieeexplore.ieee.org/document/10304947" target="_blank" class="group block">
-                                <strong class="text-white group-hover:text-sky-400 transition-colors font-futuristic">Öziç, M. Ü., Yılmaz, A. S., et al. (2023).</strong><br>
-                                <span class="group-hover:text-sky-100 transition-colors">"An Approach to Classifying Breast Density Level Using Deep Learning-Based Segmentation Model..."</span><br>
-                                <em class="text-sky-400 block mt-1">ISMSIT IEEE Conference Paper</em>
-                            </a>
-                        </li>
-                        <li class="pl-4 border-l-2 border-sky-500/30 hover:border-sky-500 transition-colors">
-                            <a href="https://dergipark.org.tr/en/pub/bitlisfen/issue/81610/1364332" target="_blank" class="group block">
-                                <strong class="text-white group-hover:text-sky-400 transition-colors font-futuristic">Öziç, M. Ü., Yılmaz, A. S., et al. (2023).</strong><br>
-                                <span class="group-hover:text-sky-100 transition-colors">"A Comparative Study of Breast Mass Detection Using YOLOv8 Deep Learning Model..."</span><br>
-                                <em class="text-sky-400 block mt-1">Bitlis Eren Univ J Sci & Technol</em>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Awards -->
-                <div class="glass-panel p-8 rounded-2xl border border-white/5">
-                    <h3 class="text-xl font-bold text-white mb-6 flex items-center gap-3 hover-line font-futuristic"><i class="fas fa-trophy text-yellow-400"></i> Awards</h3>
-                    <ul class="space-y-6 text-sm text-slate-300">
-                        <li class="flex items-start gap-4 p-4 bg-slate-800/40 rounded-lg border border-white/5 hover:bg-slate-800/60 transition-colors">
-                            <span class="text-yellow-400 text-xl shadow-glow">★</span>
-                            <div>
-                                <strong class="text-white block text-base leading-tight font-futuristic">Denizli Metropolitan Municipality Tech Award</strong>
-                                <span class="text-slate-500 font-mono text-xs mt-1 block">2023</span>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4 p-4 bg-slate-800/40 rounded-lg border border-white/5 hover:bg-slate-800/60 transition-colors">
-                            <span class="text-yellow-400 text-xl shadow-glow">★</span>
-                            <div>
-                                <strong class="text-white block text-base leading-tight font-futuristic">TÜBİTAK 2209-A Research Grant</strong>
-                                <span class="text-slate-500 font-mono text-xs mt-1 block">Thesis Funding (2024)</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-title">Biomedical Engineer Intern (Long-Term)</div>
+              <div class="tl-company">Disera Medical Supplies Logistics | Izmir, Turkey</div>
             </div>
+            <span class="tl-date">Feb 2024 – May 2024</span>
+          </div>
+          <div class="tl-body">
+            <p>Operation and technical maintenance of <strong>Goldsite GSH-60 Automatic HPLC HbA1c Analyzers</strong>. Received certification directly from GOLDSITE Inc. (China). Managed quality control for IVD devices and contributed to R&D of diagnostic devices.</p>
+            <p>Gained comprehensive knowledge of Abbott i2000 Hormone Analyzers, Abbott Architect c16000 Biochemistry Analyzers, and Mindray Hematology devices.</p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- References -->
-    <section id="references" class="py-24 bg-slate-900/40 relative z-10 text-glow">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 section-title font-futuristic">References</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Reference 1 -->
-                <div class="glass-card p-8 rounded-2xl flex items-center gap-6 border-l-4 border-l-sky-500 shadow-lg">
-                    <div class="w-16 h-16 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 text-2xl flex-shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white font-futuristic">Prof. Dr. Sinan AKSOZ</h3>
-                        <p class="text-slate-400 text-sm mt-1 font-medium tracking-wide">Academic Reference</p>
-                    </div>
-                </div>
-                <!-- Reference 2 -->
-                <div class="glass-card p-8 rounded-2xl flex items-center gap-6 border-l-4 border-l-sky-500 shadow-lg">
-                    <div class="w-16 h-16 rounded-full bg-sky-500/20 flex items-center justify-center text-sky-400 text-2xl flex-shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white font-futuristic">Assoc. Prof. Dr. Muhammet Usame OZIC</h3>
-                        <p class="text-slate-400 text-sm mt-1 font-medium tracking-wide">Academic Reference</p>
-                    </div>
-                </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-title">Biomedical Engineer Intern – R&D & Quality</div>
+              <div class="tl-company">Prodorth Spine | Izmir, Turkey</div>
             </div>
+            <span class="tl-date">July 2022 – Aug 2022</span>
+          </div>
+          <div class="tl-body">
+            <p>Manufacturing of Class IIb spinal implants under <strong>ISO 13485</strong>. Dimensional verification and biomechanical testing per ASTM/ISO standards. Assisted in CAD design and quality control in compliance with MDR processing.</p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer id="contact" class="py-16 mt-auto relative z-10 border-t border-slate-800 bg-slate-900">
-        <div class="max-w-5xl mx-auto px-6 text-center text-glow">
-            <h2 class="text-3xl font-bold mb-8 font-futuristic">Let's Design the Future Together</h2>
-            <div class="flex flex-col md:flex-row justify-center gap-8 mb-10 text-slate-300">
-                <div class="flex items-center justify-center gap-3">
-                    <i class="fas fa-map-marker-alt text-sky-500 shadow-glow"></i>
-                    <span>Izmir, Turkey</span>
-                </div>
-                <div class="flex items-center justify-center gap-3">
-                    <i class="fas fa-phone text-sky-500 shadow-glow"></i>
-                    <span>+90 534 087 9974</span>
-                </div>
-                <div class="flex items-center justify-center gap-3">
-                    <i class="fas fa-envelope text-sky-500 shadow-glow"></i>
-                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yilmazysesidenur@gmail.com" target="_blank" class="hover:text-white transition-colors">yilmazysesidenur@gmail.com</a>
-                </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div>
+              <div class="tl-title">Clinical Engineering Intern</div>
+              <div class="tl-company">Pamukkale University Hospitals | Denizli, Turkey</div>
             </div>
-            <div class="mt-8 text-slate-600 text-sm">&copy; 2024 Ayşe Sidenur Yılmaz. All Rights Reserved.</div>
+            <span class="tl-date">June 2022 – July 2022</span>
+          </div>
+          <div class="tl-body">
+            <p>Preventive maintenance and calibration on life-support equipment (Defibrillators, Infusion Pumps) and electrical safety tests per <strong>IEC 60601</strong>. Managed critical medical device operations in a high-volume clinical setting.</p>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <script>
-        const canvas = document.getElementById('neuroCanvas');
-        const ctx = canvas.getContext('2d');
-        let width, height, particles = [];
-        const config = { particleCount: 75, connectionDistance: 140, baseSpeed: 0.4, colors: { particle: 'rgba(56, 189, 248, 0.5)', connection: 'rgba(56, 189, 248, 0.1)' } };
-        function resize() { width = window.innerWidth; height = window.innerHeight; canvas.width = width; canvas.height = height; initParticles(); }
-        window.addEventListener('resize', resize);
-        class Particle {
-            constructor() { this.x = Math.random() * width; this.y = Math.random() * height; this.vx = (Math.random() - 0.5) * config.baseSpeed; this.vy = (Math.random() - 0.5) * config.baseSpeed; this.size = 2; }
-            update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > width) this.vx *= -1; if (this.y < 0 || this.y > height) this.vy *= -1; }
-            draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fillStyle = config.colors.particle; ctx.fill(); }
-        }
-        function initParticles() { particles = []; for (let i = 0; i < config.particleCount; i++) particles.push(new Particle()); }
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update(); particles[i].draw();
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x; const dy = particles[i].y - particles[j].y; const distance = Math.sqrt(dx * dx + dy * dy);
-                    if (distance < config.connectionDistance) {
-                        ctx.beginPath(); ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 * (1 - distance / config.connectionDistance)})`; ctx.moveTo(particles[i].x, particles[i].y); ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animate);
-        }
-        window.onload = () => { resize(); animate(); }
-    </script>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact">
+  <div class="section-inner">
+    <div class="section-label"><i class="fas fa-star"></i> Recognition</div>
+    <h2 class="s-title">Recognition & Impact</h2>
+    <div class="impact-card reveal">
+      <h3 style="font-family:'Orbitron',sans-serif;font-size:1.1rem;color:#fff;margin-bottom:1.5rem;display:flex;align-items:center;gap:1rem">
+        <i class="fas fa-landmark" style="color:var(--sky)"></i>
+        Presentation to the Former President of the TRNC
+      </h3>
+      <p class="impact-quote">
+        "Following our university's participation in TEKNOFEST, I, as team leader, presented a strategic briefing to the Former President of the Turkish Republic of Northern Cyprus (TRNC), Mr. Ersin Tatar. I successfully transformed complex biomedical AI architectures into a clear vision for proactive healthcare, demonstrating my ability to communicate the value of high-risk engineering to senior leadership."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label"><i class="fas fa-flask"></i> Research</div>
+    <h2 class="s-title">Projects & Research</h2>
+    <div class="projects-grid">
+
+      <div class="proj-card featured reveal">
+        <div class="proj-header">
+          <div class="proj-title">Physio Guard</div>
+          <div class="badges">
+            <span class="badge badge-sky">Independent Project</span>
+            <span class="badge badge-green badge-pulse">● Ongoing</span>
+          </div>
+        </div>
+        <p class="proj-desc">AI-Powered Real-Time Biomechanical Analysis for Physical Therapy. Advanced pose estimation algorithms monitor patient movements, providing real-time corrective feedback and automated progress tracking for rehabilitation processes.</p>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-1">
+        <div class="proj-header">
+          <div class="proj-title">VisionaryHealth</div>
+          <div class="badges"><span class="badge badge-purple">TEKNOFEST 2024 Finalist</span></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);font-family:'Orbitron',sans-serif;margin-bottom:.75rem">Team Captain</p>
+        <p class="proj-desc">Computer Vision analysis of Mammography images & NLP in Radiology Reports. Developed a hybrid AI model to analyze textual radiology reports and images for enhanced diagnostic accuracy.</p>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-2">
+        <div class="proj-header">
+          <div class="proj-title">TÜBİTAK 2209-A Project</div>
+          <div class="badges"><span class="badge badge-green">Funded Grant</span></div>
+        </div>
+        <p class="proj-desc"><strong style="color:#e2e8f0">AI-Supported Detection of Anomalies in Spine X-Ray Images.</strong> Secured grant funding to develop a Deep Learning model detecting scoliosis and fractures, integrated into a PyQt5 GUI.</p>
+      </div>
+
+      <div class="proj-card reveal reveal-delay-3">
+        <div class="proj-header">
+          <div class="proj-title">BioMed-AI</div>
+          <div class="badges"><span class="badge badge-purple">TEKNOFEST 2023 Finalist</span></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--muted);font-family:'Orbitron',sans-serif;margin-bottom:.75rem">Team Captain</p>
+        <p class="proj-desc">Led the team in developing algorithms for disease identification from medical imaging data, achieving finalist status in Turkey's largest technology competition.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION & CERTS -->
+<section id="education" style="background:rgba(13,18,36,.5)">
+  <div class="section-inner">
+    <div class="edu-grid">
+      <div>
+        <div class="section-label"><i class="fas fa-graduation-cap"></i> Academic</div>
+        <h2 class="s-title">Education</h2>
+        <div class="edu-item reveal">
+          <div class="edu-dot"></div>
+          <div class="edu-uni">Pamukkale University</div>
+          <div class="edu-degree">BS in Biomedical Engineering</div>
+          <div class="edu-date">Sep 2020 – June 2024 &nbsp;|&nbsp; GPA: 3.48 / 4.00</div>
+          <div class="edu-thesis">Thesis: "Automatic Detection Of Disc Space Narrowing In Cervical And Lumbar Spine X-Ray Images: A Deep Learning Approach"</div>
+        </div>
+        <div class="edu-item reveal reveal-delay-1">
+          <div class="edu-dot" style="background:#475569;box-shadow:none"></div>
+          <div class="edu-uni">Atatürk University</div>
+          <div class="edu-degree">Associate Degree — Computer Programming</div>
+          <div class="edu-date">Sep 2021 – June 2023 &nbsp;|&nbsp; GPA: 2.88 / 4.00</div>
+          <p style="font-size:.85rem;color:#94a3b8;font-weight:300">Database Management, Web Design, Visual Programming, Network Technologies.</p>
+        </div>
+      </div>
+      <div>
+        <div class="section-label"><i class="fas fa-certificate"></i> Credentials</div>
+        <h2 class="s-title">Certifications</h2>
+        <div class="glass reveal" style="padding:2rem;max-height:520px;overflow-y:auto">
+          <ul class="cert-list">
+            <li class="cert-item"><i class="fas fa-certificate cert-icon"></i><div><div class="cert-name">Data Science Expertise</div><div class="cert-org">Europe Coding School (Amsterdam) — 2026</div></div></li>
+            <li class="cert-item"><i class="fas fa-certificate cert-icon"></i><div><div class="cert-name">Goldsite GSH-60 Technical Certification</div><div class="cert-org">GOLDSITE Inc. — 2024</div></div></li>
+            <li class="cert-item"><i class="fas fa-certificate cert-icon"></i><div><div class="cert-name">7th Intl. Symposium ISMSIT</div><div class="cert-org">Conference Participation — 2023</div></div></li>
+            <li class="cert-item"><i class="fas fa-certificate cert-icon"></i><div><div class="cert-name">Integrated Quality Mgmt Systems</div><div class="cert-org">ISO 9001, 13485, 15189, 17025, 45001, GDP, GMP — 2023</div></div></li>
+            <li class="cert-item"><i class="fas fa-certificate cert-icon"></i><div><div class="cert-name">AI Expertise Training</div><div class="cert-org">Riscon Academy & Opsiyon Academy — 2023</div></div></li>
+            <li class="cert-item"><i class="fas fa-certificate cert-icon"></i><div><div class="cert-name">SolidWorks 3D Design Training</div><div class="cert-org">Design Course — 2022</div></div></li>
+            <li class="cert-item"><i class="fas fa-certificate cert-icon"></i><div><div class="cert-name">C# Programming Course</div><div class="cert-org">Ecodation Technology — 2022</div></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS & AWARDS -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-label"><i class="fas fa-book-open"></i> Academic Output</div>
+    <h2 class="s-title">Publications & Awards</h2>
+    <div class="pubs-grid">
+      <div class="pub-card reveal">
+        <h3><i class="fas fa-book-open" style="color:var(--sky)"></i> Publications</h3>
+        <div class="pub-item">
+          <a href="https://ieeexplore.ieee.org/document/10304947" target="_blank">
+            <div class="pub-authors">Öziç, M. Ü., Yılmaz, A. S., et al. (2023)</div>
+            <div class="pub-title-text">"An Approach to Classifying Breast Density Level Using Deep Learning-Based Segmentation Model..."</div>
+            <div class="pub-journal">ISMSIT IEEE Conference Paper</div>
+          </a>
+        </div>
+        <div class="pub-item">
+          <a href="https://dergipark.org.tr/en/pub/bitlisfen/issue/81610/1364332" target="_blank">
+            <div class="pub-authors">Öziç, M. Ü., Yılmaz, A. S., et al. (2023)</div>
+            <div class="pub-title-text">"A Comparative Study of Breast Mass Detection Using YOLOv8 Deep Learning Model..."</div>
+            <div class="pub-journal">Bitlis Eren Univ J Sci & Technol</div>
+          </a>
+        </div>
+      </div>
+      <div class="pub-card reveal reveal-delay-1">
+        <h3><i class="fas fa-trophy" style="color:#fbbf24"></i> Awards</h3>
+        <div class="award-item">
+          <div class="award-star">★</div>
+          <div>
+            <div class="award-name">Denizli Metropolitan Municipality Tech Award</div>
+            <div class="award-year">2023</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <div class="award-star">★</div>
+          <div>
+            <div class="award-name">TÜBİTAK 2209-A Research Grant</div>
+            <div class="award-year">Thesis Funding — 2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCES -->
+<section id="references" style="background:rgba(13,18,36,.5)">
+  <div class="section-inner">
+    <div class="section-label"><i class="fas fa-users"></i> Endorsements</div>
+    <h2 class="s-title">References</h2>
+    <div class="refs-grid">
+      <div class="ref-card reveal">
+        <div class="ref-avatar"><i class="fas fa-user-tie"></i></div>
+        <div>
+          <div class="ref-name">Prof. Dr. Sinan AKSOZ</div>
+          <div class="ref-role">Academic Reference</div>
+        </div>
+      </div>
+      <div class="ref-card reveal reveal-delay-1">
+        <div class="ref-avatar"><i class="fas fa-user-tie"></i></div>
+        <div>
+          <div class="ref-name">Assoc. Prof. Dr. Muhammet Usame OZIC</div>
+          <div class="ref-role">Academic Reference</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER / CONTACT -->
+<footer id="contact">
+  <h2 class="footer-title">Let's Design the Future Together</h2>
+  <div class="contact-grid">
+    <div class="contact-item"><i class="fas fa-map-marker-alt"></i> Izmir, Turkey</div>
+    <div class="contact-item"><i class="fas fa-phone"></i> +90 534 087 9974</div>
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yilmazysesidenur@gmail.com" target="_blank" class="contact-item"><i class="fas fa-envelope"></i> yilmazysesidenur@gmail.com</a>
+  </div>
+  <div class="social-links">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yilmazysesidenur@gmail.com" target="_blank" class="social-btn" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.linkedin.com/in/ayse-yilmaz-7b824a308" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://github.com/ASY-crypto" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
+  </div>
+  <p class="footer-copy">&copy; 2026 Ayşe Sidenur Yılmaz — All Rights Reserved</p>
+</footer>
+
+<script>
+// SCROLL PROGRESS
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  progressBar.style.width = scrolled + '%';
+});
+
+// NAVBAR SCROLL
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+// REVEAL ON SCROLL
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+
+// ACTIVE NAV LINKS
+const sections = document.querySelectorAll('section[id], footer[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const activeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => activeObserver.observe(s));
+
+// CANVAS NEURAL NETWORK
+const canvas = document.getElementById('bg-canvas');
+const ctx = canvas.getContext('2d');
+let W, H, particles = [];
+const cfg = { n: 80, dist: 150, speed: 0.35 };
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  init();
+}
+
+class Particle {
+  constructor() { this.reset(); }
+  reset() { this.x = Math.random()*W; this.y = Math.random()*H; this.vx = (Math.random()-.5)*cfg.speed; this.vy = (Math.random()-.5)*cfg.speed; this.r = 1.5+Math.random(); this.alpha = .3+Math.random()*.4; }
+  update() {
+    this.x += this.vx; this.y += this.vy;
+    if (this.x<0||this.x>W) this.vx*=-1;
+    if (this.y<0||this.y>H) this.vy*=-1;
+  }
+  draw() {
+    ctx.beginPath(); ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+    ctx.fillStyle = `rgba(56,189,248,${this.alpha})`; ctx.fill();
+  }
+}
+
+function init() { particles=[]; for(let i=0;i<cfg.n;i++) particles.push(new Particle()); }
+
+function animate() {
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<particles.length;i++) {
+    particles[i].update(); particles[i].draw();
+    for(let j=i+1;j<particles.length;j++) {
+      const dx=particles[i].x-particles[j].x, dy=particles[i].y-particles[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<cfg.dist) {
+        const t=1-d/cfg.dist;
+        const grad=ctx.createLinearGradient(particles[i].x,particles[i].y,particles[j].x,particles[j].y);
+        grad.addColorStop(0,`rgba(56,189,248,${t*.12})`);
+        grad.addColorStop(1,`rgba(129,140,248,${t*.06})`);
+        ctx.beginPath(); ctx.strokeStyle=grad; ctx.lineWidth=t*.8;
+        ctx.moveTo(particles[i].x,particles[i].y); ctx.lineTo(particles[j].x,particles[j].y); ctx.stroke();
+      }
+    }
+  }
+  requestAnimationFrame(animate);
+}
+
+window.addEventListener('resize', resize);
+resize(); animate();
+</script>
 </body>
 </html>
