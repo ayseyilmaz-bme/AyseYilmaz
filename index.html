@@ -358,9 +358,27 @@
             .motion-strip .pose { animation: none; opacity: .8; }
             .gonio { animation: none; }
         }
+
+        /* ---------- AI layer + three-domain colour coding ---------- */
+        :root { --ai: #A78BFA; --grad-tri: linear-gradient(110deg, #A78BFA 0%, #38BDF8 50%, #2DD4BF 100%); }
+        #neural { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .9; }
+        .grad-text { background: var(--grad-tri); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 0 18px rgba(167, 139, 250, .35)); }
+        .brand-mark { background: var(--grad-tri); }
+        .btn-primary { background: var(--grad-tri); box-shadow: 0 10px 28px -10px rgba(167, 139, 250, .7); }
+        .btn-primary:hover { background: var(--grad-tri); }
+        .chip-float.ai { color: var(--ai); border-color: rgba(167, 139, 250, .5); box-shadow: 0 0 18px rgba(167, 139, 250, .35); }
+        .scan-img::after { background: linear-gradient(180deg, transparent, rgba(167, 139, 250, .18) 70%, rgba(56, 189, 248, .7)); }
+        .corner.tl, .corner.br { border-color: var(--ai); filter: drop-shadow(0 0 6px rgba(167, 139, 250, .8)); }
+        .vision::before, .impact { background: var(--grad-tri); }
+        .card:hover { box-shadow: 0 0 0 1px rgba(167, 139, 250, .28), 0 18px 40px -18px rgba(56, 189, 248, .5); }
+        /* a signal travelling along each section rule */
+        .section-head::after { height: 2px; background: linear-gradient(90deg, transparent, #C4B5FD, transparent), linear-gradient(90deg, var(--line-strong), transparent); background-size: 90px 100%, 100% 100%; background-repeat: no-repeat; animation: signal 4.5s linear infinite; }
+        @keyframes signal { from { background-position: -90px 0, 0 0; } to { background-position: calc(100% + 90px) 0, 0 0; } }
+        @media (prefers-reduced-motion: reduce) { .section-head::after { animation: none; } }
     </style>
 </head>
 <body>
+    <canvas id="neural" aria-hidden="true"></canvas>
 
     <!-- Sidebar navigation -->
     <nav class="sidebar" aria-label="Main">
@@ -398,7 +416,7 @@
                 <h1>Pioneering <span class="grad-text">AI</span> in <br> Biomedical</h1>
                 <h2 class="hero-name">Ayşe Sidenur YILMAZ</h2>
                 <p class="hero-lead">
-                    Specialized in Medical AI, Computer Vision, and Biomechanics.
+                    Specialized in Medical AI, Computer Vision, and Sport Biomechanics.
                     Currently innovating at the intersection of medical science and sports analytics.
                 </p>
                 <div class="btn-row">
@@ -425,7 +443,7 @@
                     <div class="scan-img">
                         <img src="https://raw.githubusercontent.com/ayseyilmaz-bme/AyseYilmaz/refs/heads/main/src/resmim.jpeg" alt="Ayşe Sidenur Yılmaz">
                     </div>
-                    <span class="chip-float c1" aria-hidden="true"><i class="fas fa-brain"></i></span>
+                    <span class="chip-float c1 ai" aria-hidden="true"><i class="fas fa-brain"></i></span>
                     <span class="chip-float c2" aria-hidden="true"><i class="fas fa-heartbeat"></i></span>
                     <span class="chip-float c3" aria-hidden="true"><i class="fas fa-x-ray"></i></span>
                     <span class="chip-float c4" aria-hidden="true"><i class="fas fa-running"></i></span>
@@ -438,10 +456,10 @@
                 <svg class="ecg" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
             <defs>
                 <linearGradient id="ecgGrad" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0" stop-color="#38BDF8" stop-opacity="0"/>
-                    <stop offset=".2" stop-color="#38BDF8"/>
-                    <stop offset=".8" stop-color="#2DD4BF"/>
-                    <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+                    <stop offset="0" stop-color="#FB7185" stop-opacity="0"/>
+                    <stop offset=".2" stop-color="#FB7185"/>
+                    <stop offset=".8" stop-color="#38BDF8"/>
+                    <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
                 </linearGradient>
             </defs>
             <path d="M0 44 H260 L280 38 L300 44 H340 L352 52 L368 6 L384 64 L398 44 H460 L486 32 L512 44 H760 L780 38 L800 44 H840 L852 52 L868 6 L884 64 L898 44 H960 L986 32 L1012 44 H1440"/>
@@ -944,6 +962,74 @@
         } else {
             items.forEach(el => el.classList.add('in'));
         }
+
+        // AI layer: a slowly drifting neural network with signals travelling along its links
+        (function () {
+            const c = document.getElementById('neural');
+            const ctx = c.getContext('2d');
+            const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const LINK = 150;
+            let w, h, nodes = [], pulses = [], last = 0, raf;
+            function size() {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                w = window.innerWidth; h = window.innerHeight;
+                c.width = w * dpr; c.height = h * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                const n = Math.round(Math.min(70, Math.max(26, (w * h) / 22000)));
+                nodes = Array.from({ length: n }, () => ({
+                    x: Math.random() * w, y: Math.random() * h,
+                    vx: (Math.random() - .5) * .22, vy: (Math.random() - .5) * .22,
+                    r: Math.random() * 1.6 + 1.2
+                }));
+                pulses = [];
+            }
+            function links() {
+                const out = [];
+                for (let i = 0; i < nodes.length; i++)
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y);
+                        if (d < LINK) out.push([i, j, d]);
+                    }
+                return out;
+            }
+            function draw(t) {
+                ctx.clearRect(0, 0, w, h);
+                if (!reduce) nodes.forEach(n => {
+                    n.x += n.vx; n.y += n.vy;
+                    if (n.x < 0 || n.x > w) n.vx *= -1;
+                    if (n.y < 0 || n.y > h) n.vy *= -1;
+                });
+                const L = links();
+                L.forEach(([i, j, d]) => {
+                    ctx.strokeStyle = 'rgba(167,139,250,' + (0.26 * (1 - d / LINK)).toFixed(3) + ')';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
+                });
+                ctx.fillStyle = 'rgba(196,181,253,.75)';
+                nodes.forEach(n => { ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill(); });
+                if (reduce) return;
+                if (t - last > 260 && L.length) {
+                    const [i, j] = L[Math.floor(Math.random() * L.length)];
+                    pulses.push({ a: i, b: j, p: 0 }); last = t;
+                }
+                pulses = pulses.filter(s => s.p <= 1);
+                pulses.forEach(s => {
+                    s.p += 0.018;
+                    const A = nodes[s.a], B = nodes[s.b];
+                    const x = A.x + (B.x - A.x) * s.p, y = A.y + (B.y - A.y) * s.p;
+                    const g = ctx.createRadialGradient(x, y, 0, x, y, 7);
+                    g.addColorStop(0, 'rgba(125,211,252,.95)'); g.addColorStop(1, 'rgba(167,139,250,0)');
+                    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
+                });
+                raf = requestAnimationFrame(draw);
+            }
+            size();
+            window.addEventListener('resize', () => { cancelAnimationFrame(raf); size(); raf = requestAnimationFrame(draw); });
+            document.addEventListener('visibilitychange', () => {
+                cancelAnimationFrame(raf);
+                if (!document.hidden) raf = requestAnimationFrame(draw);
+            });
+            raf = requestAnimationFrame(draw);
+        })();
     </script>
 </body>
 </html>
