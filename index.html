@@ -322,6 +322,42 @@
             .chip-float.c2, .chip-float.c4 { right: -12px; }
             .section-head::after { display: none; }
         }
+
+        /* ---------- Sport biomechanics x medical AI motifs ---------- */
+        .hero { flex-direction: column; justify-content: center; padding-bottom: 40px; }
+        .hero > .container.hero-grid { flex: 1; display: grid; align-content: center; }
+        .motion-band { width: 100%; margin-top: 36px; }
+        .motion-inner { position: relative; }
+        .motion-strip { display: block; width: 100%; height: auto; max-height: 220px; }
+        .motion-strip .ground { stroke: rgba(125, 185, 255, .22); stroke-width: 1.5; stroke-dasharray: 3 7; }
+        .motion-strip .com { fill: none; stroke: rgba(251, 191, 36, .55); stroke-width: 1.6; stroke-dasharray: 2 6; stroke-linecap: round; }
+        .motion-strip .pose { opacity: .28; animation: poseGlow 2.94s ease-in-out infinite; }
+        .motion-strip .bone { stroke: var(--teal); stroke-width: 3; stroke-linecap: round; }
+        .motion-strip .bone.rear { stroke: rgba(45, 212, 191, .45); }
+        .motion-strip .headc { fill: none; stroke: var(--teal); stroke-width: 2.5; }
+        .motion-strip .kp { fill: var(--cyan); stroke: #04203A; stroke-width: 1.2; }
+        .motion-strip .angle { fill: none; stroke: var(--amber); stroke-width: 2.2; stroke-linecap: round; }
+        @keyframes poseGlow { 0%, 100% { opacity: .28; filter: none; } 18% { opacity: 1; filter: drop-shadow(0 0 6px rgba(56, 189, 248, .9)); } 40% { opacity: .28; filter: none; } }
+        .motion-inner .ecg { position: absolute; left: 0; right: 0; bottom: -6px; width: 100%; height: 60px; opacity: .9; }
+        .gonio { position: absolute; inset: -58px; width: calc(100% + 116px); height: calc(100% + 116px); animation: spin 70s linear infinite; pointer-events: none; }
+        .gonio .g-ring { fill: none; stroke: rgba(56, 189, 248, .22); stroke-width: 1.2; }
+        .gonio .g-ring.thin { stroke: rgba(45, 212, 191, .14); stroke-dasharray: 2 6; }
+        .gonio .g-tick { stroke: rgba(125, 211, 252, .35); stroke-width: 1; }
+        .gonio .g-tick.long { stroke: rgba(125, 211, 252, .75); stroke-width: 2; }
+        .gonio .g-wedge { fill: rgba(251, 191, 36, .08); stroke: rgba(251, 191, 36, .45); stroke-width: 1.2; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .tl-dot { border-radius: 50%; }
+        .tl-dot::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: var(--cyan); }
+        @media (max-width: 1080px) { .hero { padding-bottom: 40px; } }
+        @media (max-width: 600px) {
+            .gonio { inset: -30px; width: calc(100% + 60px); height: calc(100% + 60px); }
+            .motion-band { margin-top: 28px; }
+            .motion-inner .ecg { height: 40px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .motion-strip .pose { animation: none; opacity: .8; }
+            .gonio { animation: none; }
+        }
     </style>
 </head>
 <body>
@@ -356,17 +392,7 @@
     <main>
     <!-- Hero -->
     <section id="home" class="hero">
-        <svg class="ecg" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-                <linearGradient id="ecgGrad" x1="0" x2="1" y1="0" y2="0">
-                    <stop offset="0" stop-color="#38BDF8" stop-opacity="0"/>
-                    <stop offset=".2" stop-color="#38BDF8"/>
-                    <stop offset=".8" stop-color="#2DD4BF"/>
-                    <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
-                </linearGradient>
-            </defs>
-            <path d="M0 44 H260 L280 38 L300 44 H340 L352 52 L368 6 L384 64 L398 44 H460 L486 32 L512 44 H760 L780 38 L800 44 H840 L852 52 L868 6 L884 64 L898 44 H960 L986 32 L1012 44 H1440"/>
-        </svg>
+
         <div class="container hero-grid">
             <div class="hero-text reveal">
                 <h1>Pioneering <span class="grad-text">AI</span> in <br> Biomedical</h1>
@@ -392,6 +418,7 @@
             </div>
             <div class="hero-visual reveal">
                 <div class="scan">
+                    <svg class="gonio" viewBox="0 0 400 400" aria-hidden="true"><g transform="translate(200 200)"><circle class="g-ring" r="196"/><circle class="g-ring thin" r="176"/><line class="g-tick long" x1="196.0" y1="0.0" x2="182.0" y2="0.0"/><line class="g-tick" x1="195.3" y1="17.1" x2="188.3" y2="16.5"/><line class="g-tick" x1="193.0" y1="34.0" x2="186.1" y2="32.8"/><line class="g-tick" x1="189.3" y1="50.7" x2="182.6" y2="48.9"/><line class="g-tick" x1="184.2" y1="67.0" x2="177.6" y2="64.6"/><line class="g-tick" x1="177.6" y1="82.8" x2="171.3" y2="79.9"/><line class="g-tick long" x1="169.7" y1="98.0" x2="157.6" y2="91.0"/><line class="g-tick" x1="160.6" y1="112.4" x2="154.8" y2="108.4"/><line class="g-tick" x1="150.1" y1="126.0" x2="144.8" y2="121.5"/><line class="g-tick" x1="138.6" y1="138.6" x2="133.6" y2="133.6"/><line class="g-tick" x1="126.0" y1="150.1" x2="121.5" y2="144.8"/><line class="g-tick" x1="112.4" y1="160.6" x2="108.4" y2="154.8"/><line class="g-tick long" x1="98.0" y1="169.7" x2="91.0" y2="157.6"/><line class="g-tick" x1="82.8" y1="177.6" x2="79.9" y2="171.3"/><line class="g-tick" x1="67.0" y1="184.2" x2="64.6" y2="177.6"/><line class="g-tick" x1="50.7" y1="189.3" x2="48.9" y2="182.6"/><line class="g-tick" x1="34.0" y1="193.0" x2="32.8" y2="186.1"/><line class="g-tick" x1="17.1" y1="195.3" x2="16.5" y2="188.3"/><line class="g-tick long" x1="0.0" y1="196.0" x2="0.0" y2="182.0"/><line class="g-tick" x1="-17.1" y1="195.3" x2="-16.5" y2="188.3"/><line class="g-tick" x1="-34.0" y1="193.0" x2="-32.8" y2="186.1"/><line class="g-tick" x1="-50.7" y1="189.3" x2="-48.9" y2="182.6"/><line class="g-tick" x1="-67.0" y1="184.2" x2="-64.6" y2="177.6"/><line class="g-tick" x1="-82.8" y1="177.6" x2="-79.9" y2="171.3"/><line class="g-tick long" x1="-98.0" y1="169.7" x2="-91.0" y2="157.6"/><line class="g-tick" x1="-112.4" y1="160.6" x2="-108.4" y2="154.8"/><line class="g-tick" x1="-126.0" y1="150.1" x2="-121.5" y2="144.8"/><line class="g-tick" x1="-138.6" y1="138.6" x2="-133.6" y2="133.6"/><line class="g-tick" x1="-150.1" y1="126.0" x2="-144.8" y2="121.5"/><line class="g-tick" x1="-160.6" y1="112.4" x2="-154.8" y2="108.4"/><line class="g-tick long" x1="-169.7" y1="98.0" x2="-157.6" y2="91.0"/><line class="g-tick" x1="-177.6" y1="82.8" x2="-171.3" y2="79.9"/><line class="g-tick" x1="-184.2" y1="67.0" x2="-177.6" y2="64.6"/><line class="g-tick" x1="-189.3" y1="50.7" x2="-182.6" y2="48.9"/><line class="g-tick" x1="-193.0" y1="34.0" x2="-186.1" y2="32.8"/><line class="g-tick" x1="-195.3" y1="17.1" x2="-188.3" y2="16.5"/><line class="g-tick long" x1="-196.0" y1="0.0" x2="-182.0" y2="0.0"/><line class="g-tick" x1="-195.3" y1="-17.1" x2="-188.3" y2="-16.5"/><line class="g-tick" x1="-193.0" y1="-34.0" x2="-186.1" y2="-32.8"/><line class="g-tick" x1="-189.3" y1="-50.7" x2="-182.6" y2="-48.9"/><line class="g-tick" x1="-184.2" y1="-67.0" x2="-177.6" y2="-64.6"/><line class="g-tick" x1="-177.6" y1="-82.8" x2="-171.3" y2="-79.9"/><line class="g-tick long" x1="-169.7" y1="-98.0" x2="-157.6" y2="-91.0"/><line class="g-tick" x1="-160.6" y1="-112.4" x2="-154.8" y2="-108.4"/><line class="g-tick" x1="-150.1" y1="-126.0" x2="-144.8" y2="-121.5"/><line class="g-tick" x1="-138.6" y1="-138.6" x2="-133.6" y2="-133.6"/><line class="g-tick" x1="-126.0" y1="-150.1" x2="-121.5" y2="-144.8"/><line class="g-tick" x1="-112.4" y1="-160.6" x2="-108.4" y2="-154.8"/><line class="g-tick long" x1="-98.0" y1="-169.7" x2="-91.0" y2="-157.6"/><line class="g-tick" x1="-82.8" y1="-177.6" x2="-79.9" y2="-171.3"/><line class="g-tick" x1="-67.0" y1="-184.2" x2="-64.6" y2="-177.6"/><line class="g-tick" x1="-50.7" y1="-189.3" x2="-48.9" y2="-182.6"/><line class="g-tick" x1="-34.0" y1="-193.0" x2="-32.8" y2="-186.1"/><line class="g-tick" x1="-17.1" y1="-195.3" x2="-16.5" y2="-188.3"/><line class="g-tick long" x1="-0.0" y1="-196.0" x2="-0.0" y2="-182.0"/><line class="g-tick" x1="17.1" y1="-195.3" x2="16.5" y2="-188.3"/><line class="g-tick" x1="34.0" y1="-193.0" x2="32.8" y2="-186.1"/><line class="g-tick" x1="50.7" y1="-189.3" x2="48.9" y2="-182.6"/><line class="g-tick" x1="67.0" y1="-184.2" x2="64.6" y2="-177.6"/><line class="g-tick" x1="82.8" y1="-177.6" x2="79.9" y2="-171.3"/><line class="g-tick long" x1="98.0" y1="-169.7" x2="91.0" y2="-157.6"/><line class="g-tick" x1="112.4" y1="-160.6" x2="108.4" y2="-154.8"/><line class="g-tick" x1="126.0" y1="-150.1" x2="121.5" y2="-144.8"/><line class="g-tick" x1="138.6" y1="-138.6" x2="133.6" y2="-133.6"/><line class="g-tick" x1="150.1" y1="-126.0" x2="144.8" y2="-121.5"/><line class="g-tick" x1="160.6" y1="-112.4" x2="154.8" y2="-108.4"/><line class="g-tick long" x1="169.7" y1="-98.0" x2="157.6" y2="-91.0"/><line class="g-tick" x1="177.6" y1="-82.8" x2="171.3" y2="-79.9"/><line class="g-tick" x1="184.2" y1="-67.0" x2="177.6" y2="-64.6"/><line class="g-tick" x1="189.3" y1="-50.7" x2="182.6" y2="-48.9"/><line class="g-tick" x1="193.0" y1="-34.0" x2="186.1" y2="-32.8"/><line class="g-tick" x1="195.3" y1="-17.1" x2="188.3" y2="-16.5"/><path class="g-wedge" d="M0 0 L0.0 -176.0 A176 176 0 0 1 108.4 -138.7 Z"/></g></svg>
                     <div class="scan-frame" aria-hidden="true"></div>
                     <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
                     <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
@@ -403,6 +430,22 @@
                     <span class="chip-float c3" aria-hidden="true"><i class="fas fa-x-ray"></i></span>
                     <span class="chip-float c4" aria-hidden="true"><i class="fas fa-running"></i></span>
                 </div>
+            </div>
+        </div>
+        <div class="motion-band reveal" aria-hidden="true">
+            <div class="container motion-inner">
+                <svg class="motion-strip" viewBox="0 0 1120 268" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path class="com" d="M100 162 L244 184 L418 144 L578 108 L736 168 L886 184 L1060 162"/><line class="ground" x1="20" y1="247" x2="1100" y2="247"/><g class="pose" style="animation-delay:0.00s"><line class="bone" x1="100" y1="78" x2="100" y2="98"/><line class="bone" x1="100" y1="98" x2="100" y2="104"/><line class="bone" x1="100" y1="104" x2="100" y2="162"/><line class="bone" x1="100" y1="162" x2="102" y2="204"/><line class="bone" x1="102" y1="204" x2="100" y2="242"/><line class="bone" x1="100" y1="242" x2="114" y2="246"/><line class="bone rear" x1="100" y1="162" x2="96" y2="204"/><line class="bone rear" x1="96" y1="204" x2="94" y2="242"/><line class="bone rear" x1="94" y1="242" x2="108" y2="246"/><line class="bone" x1="100" y1="104" x2="98" y2="136"/><line class="bone" x1="98" y1="136" x2="100" y2="164"/><line class="bone rear" x1="100" y1="104" x2="104" y2="136"/><line class="bone rear" x1="104" y1="136" x2="106" y2="164"/><circle class="headc" cx="100" cy="78" r="9"/><circle class="kp" cx="100" cy="98" r="3.2"/><circle class="kp" cx="100" cy="104" r="3.2"/><circle class="kp" cx="98" cy="136" r="3.2"/><circle class="kp" cx="100" cy="164" r="3.2"/><circle class="kp" cx="100" cy="162" r="3.2"/><circle class="kp" cx="102" cy="204" r="3.2"/><circle class="kp" cx="100" cy="242" r="3.2"/><circle class="kp" cx="114" cy="246" r="3.2"/></g><g class="pose" style="animation-delay:0.42s"><line class="bone" x1="270" y1="108" x2="266" y2="126"/><line class="bone" x1="266" y1="126" x2="265" y2="132"/><line class="bone" x1="265" y1="132" x2="244" y2="184"/><line class="bone" x1="244" y1="184" x2="276" y2="208"/><line class="bone" x1="276" y1="208" x2="260" y2="242"/><line class="bone" x1="260" y1="242" x2="274" y2="246"/><line class="bone rear" x1="244" y1="184" x2="270" y2="210"/><line class="bone rear" x1="270" y1="210" x2="254" y2="242"/><line class="bone rear" x1="254" y1="242" x2="268" y2="246"/><line class="bone" x1="265" y1="132" x2="248" y2="154"/><line class="bone" x1="248" y1="154" x2="234" y2="168"/><line class="bone rear" x1="265" y1="132" x2="252" y2="156"/><line class="bone rear" x1="252" y1="156" x2="238" y2="172"/><circle class="headc" cx="270" cy="108" r="9"/><circle class="kp" cx="266" cy="126" r="3.2"/><circle class="kp" cx="265" cy="132" r="3.2"/><circle class="kp" cx="248" cy="154" r="3.2"/><circle class="kp" cx="234" cy="168" r="3.2"/><circle class="kp" cx="244" cy="184" r="3.2"/><circle class="kp" cx="276" cy="208" r="3.2"/><circle class="kp" cx="260" cy="242" r="3.2"/><circle class="kp" cx="274" cy="246" r="3.2"/><path class="angle" d="M262 202 A15 15 0 0 0 268 220"/></g><g class="pose" style="animation-delay:0.84s"><line class="bone" x1="424" y1="60" x2="422" y2="80"/><line class="bone" x1="422" y1="80" x2="422" y2="86"/><line class="bone" x1="422" y1="86" x2="418" y2="144"/><line class="bone" x1="418" y1="144" x2="420" y2="186"/><line class="bone" x1="420" y1="186" x2="422" y2="224"/><line class="bone" x1="422" y1="224" x2="430" y2="234"/><line class="bone rear" x1="418" y1="144" x2="416" y2="186"/><line class="bone rear" x1="416" y1="186" x2="416" y2="224"/><line class="bone rear" x1="416" y1="224" x2="424" y2="234"/><line class="bone" x1="422" y1="86" x2="430" y2="60"/><line class="bone" x1="430" y1="60" x2="436" y2="36"/><line class="bone rear" x1="422" y1="86" x2="426" y2="62"/><line class="bone rear" x1="426" y1="62" x2="430" y2="38"/><circle class="headc" cx="424" cy="60" r="9"/><circle class="kp" cx="422" cy="80" r="3.2"/><circle class="kp" cx="422" cy="86" r="3.2"/><circle class="kp" cx="430" cy="60" r="3.2"/><circle class="kp" cx="436" cy="36" r="3.2"/><circle class="kp" cx="418" cy="144" r="3.2"/><circle class="kp" cx="420" cy="186" r="3.2"/><circle class="kp" cx="422" cy="224" r="3.2"/><circle class="kp" cx="430" cy="234" r="3.2"/></g><g class="pose" style="animation-delay:1.26s"><line class="bone" x1="582" y1="24" x2="580" y2="44"/><line class="bone" x1="580" y1="44" x2="580" y2="50"/><line class="bone" x1="580" y1="50" x2="578" y2="108"/><line class="bone" x1="578" y1="108" x2="590" y2="142"/><line class="bone" x1="590" y1="142" x2="582" y2="178"/><line class="bone" x1="582" y1="178" x2="590" y2="184"/><line class="bone rear" x1="578" y1="108" x2="584" y2="144"/><line class="bone rear" x1="584" y1="144" x2="576" y2="178"/><line class="bone rear" x1="576" y1="178" x2="584" y2="184"/><line class="bone" x1="580" y1="50" x2="592" y2="40"/><line class="bone" x1="592" y1="40" x2="602" y2="26"/><line class="bone rear" x1="580" y1="50" x2="588" y2="42"/><line class="bone rear" x1="588" y1="42" x2="598" y2="28"/><circle class="headc" cx="582" cy="24" r="9"/><circle class="kp" cx="580" cy="44" r="3.2"/><circle class="kp" cx="580" cy="50" r="3.2"/><circle class="kp" cx="592" cy="40" r="3.2"/><circle class="kp" cx="602" cy="26" r="3.2"/><circle class="kp" cx="578" cy="108" r="3.2"/><circle class="kp" cx="590" cy="142" r="3.2"/><circle class="kp" cx="582" cy="178" r="3.2"/><circle class="kp" cx="590" cy="184" r="3.2"/></g><g class="pose" style="animation-delay:1.68s"><line class="bone" x1="742" y1="86" x2="740" y2="106"/><line class="bone" x1="740" y1="106" x2="740" y2="112"/><line class="bone" x1="740" y1="112" x2="736" y2="168"/><line class="bone" x1="736" y1="168" x2="748" y2="206"/><line class="bone" x1="748" y1="206" x2="740" y2="242"/><line class="bone" x1="740" y1="242" x2="754" y2="246"/><line class="bone rear" x1="736" y1="168" x2="742" y2="208"/><line class="bone rear" x1="742" y1="208" x2="734" y2="242"/><line class="bone rear" x1="734" y1="242" x2="748" y2="246"/><line class="bone" x1="740" y1="112" x2="756" y2="130"/><line class="bone" x1="756" y1="130" x2="768" y2="142"/><line class="bone rear" x1="740" y1="112" x2="752" y2="132"/><line class="bone rear" x1="752" y1="132" x2="764" y2="144"/><circle class="headc" cx="742" cy="86" r="9"/><circle class="kp" cx="740" cy="106" r="3.2"/><circle class="kp" cx="740" cy="112" r="3.2"/><circle class="kp" cx="756" cy="130" r="3.2"/><circle class="kp" cx="768" cy="142" r="3.2"/><circle class="kp" cx="736" cy="168" r="3.2"/><circle class="kp" cx="748" cy="206" r="3.2"/><circle class="kp" cx="740" cy="242" r="3.2"/><circle class="kp" cx="754" cy="246" r="3.2"/></g><g class="pose" style="animation-delay:2.10s"><line class="bone" x1="912" y1="112" x2="908" y2="130"/><line class="bone" x1="908" y1="130" x2="907" y2="136"/><line class="bone" x1="907" y1="136" x2="886" y2="184"/><line class="bone" x1="886" y1="184" x2="918" y2="206"/><line class="bone" x1="918" y1="206" x2="900" y2="242"/><line class="bone" x1="900" y1="242" x2="914" y2="246"/><line class="bone rear" x1="886" y1="184" x2="912" y2="208"/><line class="bone rear" x1="912" y1="208" x2="894" y2="242"/><line class="bone rear" x1="894" y1="242" x2="908" y2="246"/><line class="bone" x1="907" y1="136" x2="922" y2="156"/><line class="bone" x1="922" y1="156" x2="932" y2="170"/><line class="bone rear" x1="907" y1="136" x2="918" y2="158"/><line class="bone rear" x1="918" y1="158" x2="928" y2="172"/><circle class="headc" cx="912" cy="112" r="9"/><circle class="kp" cx="908" cy="130" r="3.2"/><circle class="kp" cx="907" cy="136" r="3.2"/><circle class="kp" cx="922" cy="156" r="3.2"/><circle class="kp" cx="932" cy="170" r="3.2"/><circle class="kp" cx="886" cy="184" r="3.2"/><circle class="kp" cx="918" cy="206" r="3.2"/><circle class="kp" cx="900" cy="242" r="3.2"/><circle class="kp" cx="914" cy="246" r="3.2"/><path class="angle" d="M904 200 A15 15 0 0 0 910 218"/></g><g class="pose" style="animation-delay:2.52s"><line class="bone" x1="1060" y1="78" x2="1060" y2="98"/><line class="bone" x1="1060" y1="98" x2="1060" y2="104"/><line class="bone" x1="1060" y1="104" x2="1060" y2="162"/><line class="bone" x1="1060" y1="162" x2="1062" y2="204"/><line class="bone" x1="1062" y1="204" x2="1060" y2="242"/><line class="bone" x1="1060" y1="242" x2="1074" y2="246"/><line class="bone rear" x1="1060" y1="162" x2="1056" y2="204"/><line class="bone rear" x1="1056" y1="204" x2="1054" y2="242"/><line class="bone rear" x1="1054" y1="242" x2="1068" y2="246"/><line class="bone" x1="1060" y1="104" x2="1058" y2="136"/><line class="bone" x1="1058" y1="136" x2="1060" y2="164"/><line class="bone rear" x1="1060" y1="104" x2="1064" y2="136"/><line class="bone rear" x1="1064" y1="136" x2="1066" y2="164"/><circle class="headc" cx="1060" cy="78" r="9"/><circle class="kp" cx="1060" cy="98" r="3.2"/><circle class="kp" cx="1060" cy="104" r="3.2"/><circle class="kp" cx="1058" cy="136" r="3.2"/><circle class="kp" cx="1060" cy="164" r="3.2"/><circle class="kp" cx="1060" cy="162" r="3.2"/><circle class="kp" cx="1062" cy="204" r="3.2"/><circle class="kp" cx="1060" cy="242" r="3.2"/><circle class="kp" cx="1074" cy="246" r="3.2"/></g></svg>
+                <svg class="ecg" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+                <linearGradient id="ecgGrad" x1="0" x2="1" y1="0" y2="0">
+                    <stop offset="0" stop-color="#38BDF8" stop-opacity="0"/>
+                    <stop offset=".2" stop-color="#38BDF8"/>
+                    <stop offset=".8" stop-color="#2DD4BF"/>
+                    <stop offset="1" stop-color="#2DD4BF" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+            <path d="M0 44 H260 L280 38 L300 44 H340 L352 52 L368 6 L384 64 L398 44 H460 L486 32 L512 44 H760 L780 38 L800 44 H840 L852 52 L868 6 L884 64 L898 44 H960 L986 32 L1012 44 H1440"/>
+        </svg>
             </div>
         </div>
     </section>
@@ -824,7 +867,7 @@
                 <div class="card ref-card reveal">
                     <div class="avatar" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
                     <div>
-                        <h3>Prof. Dr. Sinan AKSOZ</h3>
+                        <h3>Prof. Dr. Sinan AKSÖZ</h3>
                         <p>Academic Reference</p>
                     </div>
                 </div>
@@ -832,7 +875,7 @@
                 <div class="card ref-card reveal">
                     <div class="avatar" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
                     <div>
-                        <h3>Assoc. Prof. Dr. Muhammet Usame OZIC</h3>
+                        <h3>Assoc. Prof. Dr. Muhammet Üsame ÖZİÇ</h3>
                         <p>Academic Reference</p>
                     </div>
                 </div>
