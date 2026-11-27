@@ -537,17 +537,12 @@
         @media (prefers-reduced-motion: reduce) { .fz-sig { display: none; } .fz-ring, .fz-out { animation: none; } }
 
         /* ---------- Glyph background: data (letters + digits) assembling into imaging / biomechanics forms ---------- */
-        .glyph-band { position: relative; z-index: 1; height: clamp(380px, 62vh, 560px); margin: 10px 0 0;
-                      -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
-                      mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent); }
-        .glyph-band::before { content: ''; position: absolute; inset: 0; pointer-events: none;
-                      background: radial-gradient(ellipse 34% 48% at 50% 50%, rgba(125, 211, 252, .06), transparent 70%),
-                                  linear-gradient(90deg, rgba(125, 211, 252, .05), transparent 30%, transparent 70%, rgba(246, 164, 69, .05)); }
-        #glyphs { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-        @media (max-width: 600px) { .glyph-band { height: 380px; } }
+        #glyphs { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
+        main, .footer { position: relative; z-index: 1; }
 </style>
 </head>
 <body>
+    <canvas id="glyphs" aria-hidden="true"></canvas>
     
     <svg class="xr-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>
 <filter id="xrGlow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
@@ -650,8 +645,6 @@
             </div>
         </div>
     </section>
-
-    <div class="glyph-band" aria-hidden="true"><canvas id="glyphs"></canvas></div>
 
     <!-- My Vision -->
     <section id="about" class="section">
@@ -1220,13 +1213,15 @@
             }
             function size() {
                 dpr = Math.min(window.devicePixelRatio || 1, 2);
-                W = cv.clientWidth; H = cv.clientHeight;
+                W = window.innerWidth; H = window.innerHeight;
                 cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
                 buildSprites();
-                const cx = W / 2, cy = H / 2;
-                const hPx = H * .92;
-                targets = SHAPES.map(s => sample(s, hPx).map(([x, y]) => [x + cx, y + cy]));
-                N = Math.min(Math.max(...targets.map(t => t.length)) + Math.round((W * H) / 2600), W > 600 ? 1300 : 600);
+                // each shape forms at its own place: spine left, sprinter right, knee centre (behind the content)
+                const side = W > 1080 ? 280 : 0, mw = W - side, wide = W > 1080;
+                const XS = wide ? [.27, .7, .5] : [.5, .5, .5];
+                const hPx = Math.min(H * (W > 600 ? .84 : .62), 780), cy = H / 2;
+                targets = SHAPES.map((s, i) => sample(s, hPx).map(([x, y]) => [x + side + mw * XS[i], y + cy]));
+                N = Math.min(Math.max(...targets.map(t => t.length)) + Math.round((W * H) / 4200), W > 600 ? 1700 : 700);
                 parts = Array.from({ length: N }, () => ({
                     x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .3, vy: Math.random() * .35 + .1,
                     tx: 0, ty: 0, k: Math.floor(Math.random() * CHARS.length), on: false
@@ -1260,7 +1255,7 @@
                     }
                     if (Math.random() < .012) p.k = Math.floor(Math.random() * CHARS.length);
                     const near = p.on && Math.abs(p.tx - p.x) + Math.abs(p.ty - p.y) < 6;
-                    ctx.globalAlpha = p.on ? (near ? .85 : .4) : .13;
+                    ctx.globalAlpha = p.on ? (near ? .6 : .32) : .12;
                     ctx.drawImage(sprites[colourKey(p)][p.k], p.x - GS / 2, p.y - GS / 2, GS, GS);
                 }
                 ctx.globalAlpha = 1;
@@ -1281,11 +1276,6 @@
                 if (reduce) { staticFrame(); window.addEventListener('resize', () => { size(); staticFrame(); }); return; }
                 window.addEventListener('resize', () => { cancelAnimationFrame(raf); size(); raf = requestAnimationFrame(step); });
                 document.addEventListener('visibilitychange', () => { cancelAnimationFrame(raf); if (!document.hidden) { last = performance.now(); raf = requestAnimationFrame(step); } });
-                let visible = true;
-                new IntersectionObserver(([e]) => {
-                    visible = e.isIntersecting; cancelAnimationFrame(raf);
-                    if (visible) { last = performance.now(); raf = requestAnimationFrame(step); }
-                }).observe(cv);
                 last = performance.now(); raf = requestAnimationFrame(step);
             }
             (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(start);
