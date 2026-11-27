@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayşe Sidenur Yılmaz | Biomedical AI Engineer</title>
     <meta name="description" content="Ayşe Sidenur Yılmaz - Biomedical Engineer, Data Scientist, AI Researcher Portfolio">
-    <meta name="theme-color" content="#06162B">
+    <meta name="theme-color" content="#0B0D11">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -13,23 +13,23 @@
     <style>
         /* ---------- Design tokens: deep-navy medical-technology theme ---------- */
         :root {
-            --bg: #06162B;
-            --bg-2: #081D38;
-            --panel: rgba(13, 37, 68, .72);
-            --panel-solid: #0C2442;
-            --panel-2: #10305A;
-            --line: rgba(125, 185, 255, .14);
+            --bg: #0B0D11;
+            --bg-2: #101319;
+            --panel: rgba(24, 28, 36, .72);
+            --panel-solid: #161A22;
+            --panel-2: #1D222C;
+            --line: rgba(255, 255, 255, .09);
             --line-strong: rgba(125, 211, 252, .35);
-            --ink: #F1F7FD;
-            --ink-2: #C3D4E6;
-            --muted: #8EA6C1;
+            --ink: #F5F6F8;
+            --ink-2: #CDD2DA;
+            --muted: #98A1AE;
             --cyan: #38BDF8;
-            --teal: #2DD4BF;
+            --teal: #F6A445;
             --rose: #FB7185;
             --emerald: #34D399;
             --violet: #A78BFA;
             --amber: #FBBF24;
-            --grad: linear-gradient(120deg, #38BDF8 0%, #2DD4BF 100%);
+            --grad: linear-gradient(120deg, #38BDF8 0%, #F6A445 100%);
             --glow: 0 0 0 1px rgba(56, 189, 248, .25), 0 18px 40px -18px rgba(56, 189, 248, .45);
             --radius: 18px;
             --sidebar: 280px;
@@ -43,9 +43,9 @@
         body {
             margin: 0; font-family: var(--font); color: var(--ink-2); line-height: 1.7;
             background:
-                radial-gradient(1100px 600px at 85% -10%, rgba(56, 189, 248, .16), transparent 60%),
-                radial-gradient(900px 600px at -10% 40%, rgba(45, 212, 191, .10), transparent 60%),
-                linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 50%, var(--bg) 100%);
+                radial-gradient(1000px 720px at 8% 0%, rgba(125, 211, 252, .10), transparent 62%),
+                radial-gradient(1000px 720px at 100% 100%, rgba(246, 164, 69, .09), transparent 62%),
+                linear-gradient(90deg, #0A0C10 0%, #0E1015 50%, #110F0D 100%);
             background-attachment: fixed;
             -webkit-font-smoothing: antialiased; overflow-x: hidden;
         }
@@ -59,7 +59,7 @@
         /* ---------- Sidebar navigation ---------- */
         .sidebar {
             position: fixed; inset: 0 auto 0 0; width: var(--sidebar); z-index: 40;
-            background: linear-gradient(180deg, rgba(8, 28, 54, .92), rgba(6, 22, 43, .96));
+            background: linear-gradient(180deg, rgba(14, 16, 21, .92), rgba(10, 12, 16, .96));
             border-right: 1px solid var(--line);
             backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
             display: flex; flex-direction: column; padding: 28px 18px;
@@ -67,7 +67,7 @@
         .brand { display: flex; align-items: center; gap: 12px; padding: 0 8px 26px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
         .brand-mark {
             width: 44px; height: 44px; border-radius: 13px; flex-shrink: 0; display: grid; place-items: center;
-            color: #04203A; background: var(--grad); font-size: 1.15rem; box-shadow: 0 0 24px rgba(56, 189, 248, .45);
+            color: #0B0D11; background: var(--grad); font-size: 1.15rem; box-shadow: 0 0 24px rgba(56, 189, 248, .45);
         }
         .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
         .brand-title { font-family: var(--head); font-weight: 700; color: var(--ink); font-size: .88rem; white-space: nowrap; }
@@ -79,14 +79,14 @@
             font-size: .9rem; font-weight: 600; color: var(--muted); position: relative;
             transition: color .2s, background .2s;
         }
-        .menu a i { width: 18px; text-align: center; font-size: .9rem; color: #5E7C9C; transition: color .2s; }
+        .menu a i { width: 18px; text-align: center; font-size: .9rem; color: #6B7482; transition: color .2s; }
         .menu a:hover { color: var(--ink); background: rgba(56, 189, 248, .07); }
         .menu a.active { color: var(--ink); background: linear-gradient(90deg, rgba(56, 189, 248, .16), rgba(56, 189, 248, .02)); }
         .menu a.active i { color: var(--cyan); }
         .menu a.active::before { content: ''; position: absolute; left: -18px; top: 8px; bottom: 8px; width: 3px; border-radius: 0 3px 3px 0; background: var(--grad); box-shadow: 0 0 12px var(--cyan); }
         .sidebar-pulse { margin-top: auto; padding: 0 8px; opacity: .8; }
         .sidebar-pulse svg { width: 100%; height: 40px; }
-        .sidebar-pulse path { fill: none; stroke: var(--teal); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 520; stroke-dashoffset: 520; animation: trace 3.2s linear infinite; filter: drop-shadow(0 0 4px rgba(45, 212, 191, .8)); }
+        .sidebar-pulse path { fill: none; stroke: var(--teal); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 520; stroke-dashoffset: 520; animation: trace 3.2s linear infinite; filter: drop-shadow(0 0 4px rgba(246, 164, 69, .8)); }
         .menu-btn { display: none; }
 
         /* ---------- Main ---------- */
@@ -107,11 +107,11 @@
             transition: transform .2s, box-shadow .2s, background .2s;
         }
         .btn:hover { transform: translateY(-2px); background: rgba(56, 189, 248, .1); box-shadow: var(--glow); }
-        .btn-primary { background: var(--grad); color: #04203A; border-color: transparent; box-shadow: 0 10px 28px -10px rgba(56, 189, 248, .8); }
+        .btn-primary { background: var(--grad); color: #0B0D11; border-color: transparent; box-shadow: 0 10px 28px -10px rgba(56, 189, 248, .8); }
         .btn-primary:hover { background: var(--grad); }
 
         .scan { position: relative; width: min(380px, 80vw); aspect-ratio: 1; margin: 0 auto; padding: 18px; }
-        .scan-frame { position: absolute; inset: 0; border-radius: 26px; border: 1px solid var(--line); background: rgba(12, 36, 66, .55); box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .8), inset 0 0 60px rgba(56, 189, 248, .06); }
+        .scan-frame { position: absolute; inset: 0; border-radius: 26px; border: 1px solid var(--line); background: rgba(22, 26, 34, .55); box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .8), inset 0 0 60px rgba(56, 189, 248, .06); }
         .corner { position: absolute; width: 34px; height: 34px; border: 3px solid var(--cyan); filter: drop-shadow(0 0 6px rgba(56, 189, 248, .8)); }
         .corner.tl { top: -2px; left: -2px; border-right: 0; border-bottom: 0; border-top-left-radius: 26px; }
         .corner.tr { top: -2px; right: -2px; border-left: 0; border-bottom: 0; border-top-right-radius: 26px; }
@@ -148,7 +148,7 @@
         .section-head { display: flex; align-items: center; gap: 16px; margin-bottom: 38px; }
         .section-head::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line-strong), transparent); }
         .section-title { font-size: clamp(1.6rem, 2.8vw, 2.15rem); font-weight: 700; display: flex; align-items: baseline; gap: 14px; }
-        .section-title::before { counter-increment: sec; content: counter(sec, decimal-leading-zero); font-family: var(--mono); font-size: .8rem; font-weight: 600; color: var(--teal); letter-spacing: .08em; padding: 4px 8px; border: 1px solid rgba(45, 212, 191, .35); border-radius: 7px; transform: translateY(-4px); }
+        .section-title::before { counter-increment: sec; content: counter(sec, decimal-leading-zero); font-family: var(--mono); font-size: .8rem; font-weight: 600; color: var(--teal); letter-spacing: .08em; padding: 4px 8px; border: 1px solid rgba(246, 164, 69, .35); border-radius: 7px; transform: translateY(-4px); }
 
         .card {
             background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
@@ -190,15 +190,15 @@
         .tl-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 14px; }
         .tl-head h3 { font-size: 1.12rem; font-weight: 700; }
         .org { color: var(--cyan); font-weight: 600; margin-top: 4px; font-size: .94rem; }
-        .date { font-family: var(--mono); font-size: .74rem; white-space: nowrap; color: var(--teal); background: rgba(45, 212, 191, .08); border: 1px solid rgba(45, 212, 191, .3); padding: 5px 10px; border-radius: 8px; flex-shrink: 0; }
+        .date { font-family: var(--mono); font-size: .74rem; white-space: nowrap; color: var(--teal); background: rgba(246, 164, 69, .08); border: 1px solid rgba(246, 164, 69, .3); padding: 5px 10px; border-radius: 8px; flex-shrink: 0; }
         .tl-body { display: grid; gap: 12px; }
 
         /* Impact */
-        .impact { padding: 1.5px; border-radius: 22px; background: linear-gradient(120deg, rgba(56, 189, 248, .9), rgba(45, 212, 191, .3), rgba(56, 189, 248, .9)); box-shadow: 0 20px 60px -25px rgba(56, 189, 248, .55); }
-        .impact-inner { background: linear-gradient(160deg, #0E2B50, #0A2140); border-radius: 21px; padding: 40px 44px; }
+        .impact { padding: 1.5px; border-radius: 22px; background: linear-gradient(120deg, rgba(56, 189, 248, .9), rgba(246, 164, 69, .3), rgba(56, 189, 248, .9)); box-shadow: 0 20px 60px -25px rgba(56, 189, 248, .55); }
+        .impact-inner { background: linear-gradient(160deg, #1A1F28, #13171E); border-radius: 21px; padding: 40px 44px; }
         .impact h3 { display: flex; align-items: center; gap: 14px; font-size: clamp(1.15rem, 2.2vw, 1.45rem); font-weight: 700; margin-bottom: 20px; }
         .impact h3 i { color: var(--amber); }
-        .impact p { font-size: 1.06rem; font-style: italic; line-height: 1.85; border-left: 3px solid rgba(45, 212, 191, .5); padding-left: 22px; }
+        .impact p { font-size: 1.06rem; font-style: italic; line-height: 1.85; border-left: 3px solid rgba(246, 164, 69, .5); padding-left: 22px; }
 
         /* Projects */
         .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
@@ -255,13 +255,13 @@
         .ref-card p { color: var(--muted); font-size: .9rem; margin-top: 2px; }
 
         /* Footer */
-        .footer { position: relative; z-index: 1; margin-left: var(--sidebar); padding: 80px 0 44px; text-align: center; border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(8, 29, 56, .6), #041021); }
+        .footer { position: relative; z-index: 1; margin-left: var(--sidebar); padding: 80px 0 44px; text-align: center; border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(14, 16, 21, .6), #07080B); }
         .footer h2 { font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 700; margin-bottom: 32px; }
         .contact-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 38px; }
         .contact-item { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; border-radius: 12px; background: rgba(255, 255, 255, .04); border: 1px solid var(--line); color: var(--ink-2); }
         .contact-item i { color: var(--teal); }
         .contact-item a:hover { color: var(--ink); }
-        .copyright { font-size: .84rem; color: #6F88A6; }
+        .copyright { font-size: .84rem; color: #7C8592; }
 
         /* Reveal on scroll (only when JS is running) */
         .js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
@@ -281,7 +281,7 @@
             .brand-mark { width: 38px; height: 38px; font-size: 1rem; }
             .sidebar-pulse { display: none; }
             .menu-btn { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line-strong); background: rgba(255, 255, 255, .04); color: var(--ink); font-size: 1.1rem; cursor: pointer; }
-            .menu { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 10px 16px 16px; background: #071B34; border-bottom: 1px solid var(--line); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .7); }
+            .menu { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 10px 16px 16px; background: #0F1218; border-bottom: 1px solid var(--line); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, .7); }
             .menu.open { display: flex; }
             .menu a.active::before { display: none; }
             main, .footer { margin-left: 0; }
@@ -323,19 +323,19 @@
         .motion-band { width: 100%; margin-top: 36px; }
         .motion-inner { position: relative; }
         .motion-strip { display: block; width: 100%; height: auto; max-height: 220px; }
-        .motion-strip .ground { stroke: rgba(125, 185, 255, .22); stroke-width: 1.5; stroke-dasharray: 3 7; }
+        .motion-strip .ground { stroke: rgba(210, 216, 226, .2); stroke-width: 1.5; stroke-dasharray: 3 7; }
         .motion-strip .com { fill: none; stroke: rgba(251, 191, 36, .55); stroke-width: 1.6; stroke-dasharray: 2 6; stroke-linecap: round; }
         .motion-strip .pose { opacity: .28; animation: poseGlow 2.94s ease-in-out infinite; }
         .motion-strip .bone { stroke: var(--teal); stroke-width: 3; stroke-linecap: round; }
-        .motion-strip .bone.rear { stroke: rgba(45, 212, 191, .45); }
+        .motion-strip .bone.rear { stroke: rgba(246, 164, 69, .45); }
         .motion-strip .headc { fill: none; stroke: var(--teal); stroke-width: 2.5; }
-        .motion-strip .kp { fill: var(--cyan); stroke: #04203A; stroke-width: 1.2; }
+        .motion-strip .kp { fill: var(--cyan); stroke: #0B0D11; stroke-width: 1.2; }
         .motion-strip .angle { fill: none; stroke: var(--amber); stroke-width: 2.2; stroke-linecap: round; }
         @keyframes poseGlow { 0%, 100% { opacity: .28; filter: none; } 18% { opacity: 1; filter: drop-shadow(0 0 6px rgba(56, 189, 248, .9)); } 40% { opacity: .28; filter: none; } }
         .motion-inner .ecg { position: absolute; left: 0; right: 0; bottom: -6px; width: 100%; height: 60px; opacity: .9; }
         .gonio { position: absolute; inset: -58px; width: calc(100% + 116px); height: calc(100% + 116px); animation: spin 70s linear infinite; pointer-events: none; }
         .gonio .g-ring { fill: none; stroke: rgba(56, 189, 248, .22); stroke-width: 1.2; }
-        .gonio .g-ring.thin { stroke: rgba(45, 212, 191, .14); stroke-dasharray: 2 6; }
+        .gonio .g-ring.thin { stroke: rgba(246, 164, 69, .14); stroke-dasharray: 2 6; }
         .gonio .g-tick { stroke: rgba(125, 211, 252, .35); stroke-width: 1; }
         .gonio .g-tick.long { stroke: rgba(125, 211, 252, .75); stroke-width: 2; }
         .gonio .g-wedge { fill: rgba(251, 191, 36, .08); stroke: rgba(251, 191, 36, .45); stroke-width: 1.2; }
@@ -354,17 +354,17 @@
         }
 
         /* ---------- AI layer + three-domain colour coding ---------- */
-        :root { --ai: #A78BFA; --grad-tri: linear-gradient(110deg, #A78BFA 0%, #38BDF8 50%, #2DD4BF 100%); }
+        :root { --ai: #A78BFA; --grad-tri: linear-gradient(100deg, #7DD3FC 0%, #38BDF8 38%, #F6A445 72%, #FB923C 100%); }
         #neural { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; opacity: .9; }
-        .grad-text { background: var(--grad-tri); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 0 18px rgba(167, 139, 250, .35)); }
+        .grad-text { background: var(--grad-tri); -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none; filter: drop-shadow(0 0 18px rgba(246, 164, 69, .22)); }
         .brand-mark { background: var(--grad-tri); }
-        .btn-primary { background: var(--grad-tri); box-shadow: 0 10px 28px -10px rgba(167, 139, 250, .7); }
+        .btn-primary { background: var(--grad-tri); box-shadow: 0 10px 28px -10px rgba(246, 164, 69, .55); }
         .btn-primary:hover { background: var(--grad-tri); }
         .chip-float.ai { color: var(--ai); border-color: rgba(167, 139, 250, .5); box-shadow: 0 0 18px rgba(167, 139, 250, .35); }
         .scan-img::after { background: linear-gradient(180deg, transparent, rgba(167, 139, 250, .18) 70%, rgba(56, 189, 248, .7)); }
         .corner.tl, .corner.br { border-color: var(--ai); filter: drop-shadow(0 0 6px rgba(167, 139, 250, .8)); }
         .vision::before, .impact { background: var(--grad-tri); }
-        .card:hover { box-shadow: 0 0 0 1px rgba(167, 139, 250, .28), 0 18px 40px -18px rgba(56, 189, 248, .5); }
+        .card:hover { box-shadow: 0 0 0 1px rgba(246, 164, 69, .28), 0 18px 40px -18px rgba(56, 189, 248, .45); }
         /* a signal travelling along each section rule */
         .section-head::after { height: 2px; background: linear-gradient(90deg, transparent, #C4B5FD, transparent), linear-gradient(90deg, var(--line-strong), transparent); background-size: 90px 100%, 100% 100%; background-repeat: no-repeat; animation: signal 4.5s linear infinite; }
         @keyframes signal { from { background-position: -90px 0, 0 0; } to { background-position: calc(100% + 90px) 0, 0 0; } }
@@ -372,7 +372,7 @@
 
         /* ---------- Background motifs: MRI, X-ray, CT, knee biomechanics, runner ---------- */
         .section > .container { position: relative; z-index: 1; }
-        .card { background: rgba(13, 37, 68, .58); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
+        .card { background: rgba(22, 26, 33, .6); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); }
         .motif { position: absolute; z-index: 0; fill: none; opacity: .3; pointer-events: none; }
         .m-mri   { width: 360px; right: -70px; top: 50%; transform: translateY(-40%); }
         .m-spine { width: 200px; right: -60px; top: 8%; }
@@ -394,9 +394,9 @@
         .m-beam   { fill: rgba(251, 113, 133, .07); stroke: rgba(251, 113, 133, .35); stroke-width: 1; }
         .m-lig    { stroke: #FB7185; stroke-width: 2.5; stroke-linecap: round; }
         .m-align  { stroke: #FBBF24; stroke-width: 1.5; stroke-dasharray: 5 5; }
-        .m-kp     { fill: #38BDF8; stroke: #04203A; stroke-width: 1.2; }
+        .m-kp     { fill: #38BDF8; stroke: #0B0D11; stroke-width: 1.2; }
         .m-arc    { stroke: #FBBF24; stroke-width: 3; stroke-linecap: round; animation: blink 2.4s ease-in-out infinite; }
-        .m-limb   { stroke: #2DD4BF; stroke-width: 4; stroke-linecap: round; }
+        .m-limb   { stroke: #F6A445; stroke-width: 4; stroke-linecap: round; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
         @media (max-width: 900px) {
             .motif { opacity: .2; }
@@ -445,19 +445,19 @@
         .x-axis   { fill: none; stroke: #FBBF24; stroke-width: 2.2; stroke-dasharray: 7 6; }
         .x-ref    { stroke: rgba(251, 191, 36, .45); stroke-width: 1.4; stroke-dasharray: 3 6; }
         .x-arc    { fill: none; stroke: #FBBF24; stroke-width: 3.5; stroke-linecap: round; animation: blink 2.4s ease-in-out infinite; }
-        .x-kp     { fill: #38BDF8; stroke: #04203A; stroke-width: 1.5; }
-        .x-hl     { fill: none; stroke: rgba(45, 212, 191, .75); stroke-width: 1.6; stroke-linejoin: round; }
+        .x-kp     { fill: #38BDF8; stroke: #0B0D11; stroke-width: 1.5; }
+        .x-hl     { fill: none; stroke: rgba(246, 164, 69, .75); stroke-width: 1.6; stroke-linejoin: round; }
         .x-detect { animation: blink 2.4s ease-in-out infinite; }
         .x-detect rect { stroke: #A78BFA; stroke-width: 2; stroke-dasharray: 5 4; fill: rgba(167, 139, 250, .12); }
         .x-detect rect.x-conf { stroke: none; fill: #A78BFA; }
         .x-detect-c { stroke: #C4B5FD; stroke-width: 3.5; fill: none; stroke-linecap: round; }
-        .x-ground { stroke: rgba(125, 185, 255, .35); stroke-width: 1.5; stroke-dasharray: 3 7; }
+        .x-ground { stroke: rgba(210, 216, 226, .3); stroke-width: 1.5; stroke-dasharray: 3 7; }
         .x-grf    { stroke: #FB7185; stroke-width: 3; }
         .x-grf-h  { fill: #FB7185; }
         .xr-strip { max-height: 250px; }
         .xr-strip .pose { opacity: .34; }
         .xr-strip .bone { stroke-width: 1.6; }
-        .xr-strip .bone.rear { stroke: rgba(45, 212, 191, .5); }
+        .xr-strip .bone.rear { stroke: rgba(246, 164, 69, .5); }
         .xr-strip .kp { r: 2.6; }
         @media (max-width: 900px) {
             .motif.xr { opacity: .5; }
@@ -465,9 +465,39 @@
             .m-xchest { --w: 300px; } .m-xspine { --w: 150px; } .m-xknee { --w: 180px; } .m-xhand { --w: 200px; } .m-xfoot { --w: 260px; }
         }
         @media (prefers-reduced-motion: reduce) { .x-scan, .x-arc, .x-detect { animation: none; } }
-    </style>
+    
+        /* ---------- Fusion background: medical imaging (left) + sports biomechanics (right) ---------- */
+        :root { --sport: #F6A445; }
+        main { position: relative; z-index: 1; }
+        .fusion-bg { position: fixed; inset: 0 0 0 var(--sidebar); z-index: 0; pointer-events: none; overflow: hidden; }
+        .fz { position: absolute; top: 0; height: 100%; width: 60%; }
+        .fz-img { left: 0; opacity: .2; -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 92%); mask-image: linear-gradient(90deg, #000 0%, #000 35%, transparent 92%); }
+        .fz-bio { right: 0; opacity: .38; -webkit-mask-image: linear-gradient(270deg, #000 0%, #000 35%, transparent 92%); mask-image: linear-gradient(270deg, #000 0%, #000 35%, transparent 92%); }
+        .fz-seg  { fill: rgba(125, 211, 252, .05); stroke: #7DD3FC; stroke-width: 1.6; stroke-dasharray: 6 5; }
+        .fz-roi path { fill: none; stroke: #BAE6FD; stroke-width: 2.4; stroke-linecap: round; }
+        .fz-band { fill: url(#xrScan); animation: fzBand 9s ease-in-out infinite; }
+        @keyframes fzBand { 0% { transform: translateY(-140px); opacity: 0; } 10%, 90% { opacity: .8; } 100% { transform: translateY(900px); opacity: 0; } }
+        .fz-trail { fill: none; stroke: var(--sport); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 0 11; }
+        .fz-mk    { fill: #FFE2B8; filter: drop-shadow(0 0 6px rgba(246, 164, 69, .9)); }
+        .fz-grf   { fill: none; stroke: #FB923C; stroke-width: 2.4; stroke-linejoin: round; }
+        .fz-grf-a { fill: rgba(251, 146, 60, .08); }
+        .fz-plate { stroke: rgba(246, 164, 69, .5); stroke-width: 2; stroke-dasharray: 2 6; }
+        .fz-seam  { position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; transform: translateX(-50%);
+                    background: linear-gradient(180deg, transparent, rgba(125, 211, 252, .22) 30%, rgba(246, 164, 69, .22) 70%, transparent);
+                    box-shadow: 0 0 40px 18px rgba(255, 255, 255, .015); }
+        /* the two disciplines in the accents: cool = imaging, warm = biomechanics */
+        .motion-strip .bone { stroke: var(--sport); }
+        .xr-strip .bone.rear { stroke: rgba(246, 164, 69, .5); }
+        .x-hl { stroke: rgba(246, 164, 69, .8); }
+        .x-grf, .x-grf-h { stroke: #FB923C; } .x-grf-h { fill: #FB923C; }
+        .section-head::after { background: linear-gradient(90deg, transparent, #FCD9A8, transparent), linear-gradient(90deg, rgba(125, 211, 252, .35), rgba(246, 164, 69, .25), transparent); background-size: 90px 100%, 100% 100%; background-repeat: no-repeat; }
+        @media (max-width: 1080px) { .fusion-bg { left: 0; } .fz { width: 75%; } }
+        @media (max-width: 600px) { .fz-img { opacity: .22; } .fz-bio { opacity: .34; } .fz { width: 90%; } }
+        @media (prefers-reduced-motion: reduce) { .fz-band { animation: none; opacity: 0; } .fz-mk { display: none; } }
+</style>
 </head>
 <body>
+    <div class="fusion-bg" aria-hidden="true"><svg class="fz fz-img" viewBox="0 0 600 900" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><g transform="translate(40 190) scale(1.15)"><path class="x-tis" d="M30 460 C30 310 44 150 86 98 C118 64 168 50 210 48 C252 50 302 64 334 98 C376 150 390 310 390 460 Z"/><ellipse class="x-med" cx="218" cy="270" rx="58" ry="140"/><g class="x-glow"><rect class="x-vert" x="198" y="24" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="49" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="74" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="99" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="124" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="149" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="174" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="199" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="224" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="249" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="274" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="299" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="324" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="349" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="374" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="399" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="424" width="24" height="19" rx="4"/><rect class="x-vert" x="198" y="449" width="24" height="19" rx="4"/><path class="x-lo" stroke-width="9" d="M204 78 C176 70 150 82 124 72 C110 66 96 64 84 68"/><path class="x-lo" stroke-width="6.5" d="M222 92 C258.1 70 299.4 80 308 116"/><path class="x-li" stroke-width="2" d="M222 92 C258.1 70 299.4 80 308 116"/><path class="x-lo" stroke-width="6.5" d="M222 119 C269 97 322.8 107 334 143"/><path class="x-li" stroke-width="2" d="M222 119 C269 97 322.8 107 334 143"/><path class="x-lo" stroke-width="6.5" d="M222 146 C276.6 124 339 134 352 170"/><path class="x-li" stroke-width="2" d="M222 146 C276.6 124 339 134 352 170"/><path class="x-lo" stroke-width="6.5" d="M222 173 C281.6 151 349.8 161 364 197"/><path class="x-li" stroke-width="2" d="M222 173 C281.6 151 349.8 161 364 197"/><path class="x-lo" stroke-width="6.5" d="M222 200 C285 178 357 188 372 224"/><path class="x-li" stroke-width="2" d="M222 200 C285 178 357 188 372 224"/><path class="x-lo" stroke-width="6.5" d="M222 227 C286.7 205 360.6 215 376 251"/><path class="x-li" stroke-width="2" d="M222 227 C286.7 205 360.6 215 376 251"/><path class="x-lo" stroke-width="6.5" d="M222 254 C286.7 232 360.6 242 376 278"/><path class="x-li" stroke-width="2" d="M222 254 C286.7 232 360.6 242 376 278"/><path class="x-lo" stroke-width="6.5" d="M222 281 C285 259 357 269 372 305"/><path class="x-li" stroke-width="2" d="M222 281 C285 259 357 269 372 305"/><path class="x-lo" stroke-width="6.5" d="M222 308 C281.6 286 349.8 296 364 332"/><path class="x-li" stroke-width="2" d="M222 308 C281.6 286 349.8 296 364 332"/><path class="x-lo" stroke-width="6.5" d="M222 335 C277.4 313 340.8 323 354 359"/><path class="x-li" stroke-width="2" d="M222 335 C277.4 313 340.8 323 354 359"/><path class="x-lo" stroke-width="9" d="M216 78 C244 70 270 82 296 72 C310 66 324 64 336 68"/><path class="x-lo" stroke-width="6.5" d="M198 92 C161.9 70 120.6 80 112 116"/><path class="x-li" stroke-width="2" d="M198 92 C161.9 70 120.6 80 112 116"/><path class="x-lo" stroke-width="6.5" d="M198 119 C151 97 97.2 107 86 143"/><path class="x-li" stroke-width="2" d="M198 119 C151 97 97.2 107 86 143"/><path class="x-lo" stroke-width="6.5" d="M198 146 C143.4 124 81 134 68 170"/><path class="x-li" stroke-width="2" d="M198 146 C143.4 124 81 134 68 170"/><path class="x-lo" stroke-width="6.5" d="M198 173 C138.4 151 70.2 161 56 197"/><path class="x-li" stroke-width="2" d="M198 173 C138.4 151 70.2 161 56 197"/><path class="x-lo" stroke-width="6.5" d="M198 200 C135 178 63 188 48 224"/><path class="x-li" stroke-width="2" d="M198 200 C135 178 63 188 48 224"/><path class="x-lo" stroke-width="6.5" d="M198 227 C133.3 205 59.4 215 44 251"/><path class="x-li" stroke-width="2" d="M198 227 C133.3 205 59.4 215 44 251"/><path class="x-lo" stroke-width="6.5" d="M198 254 C133.3 232 59.4 242 44 278"/><path class="x-li" stroke-width="2" d="M198 254 C133.3 232 59.4 242 44 278"/><path class="x-lo" stroke-width="6.5" d="M198 281 C135 259 63 269 48 305"/><path class="x-li" stroke-width="2" d="M198 281 C135 259 63 269 48 305"/><path class="x-lo" stroke-width="6.5" d="M198 308 C138.4 286 70.2 296 56 332"/><path class="x-li" stroke-width="2" d="M198 308 C138.4 286 70.2 296 56 332"/><path class="x-lo" stroke-width="6.5" d="M198 335 C142.6 313 79.2 323 66 359"/><path class="x-li" stroke-width="2" d="M198 335 C142.6 313 79.2 323 66 359"/></g><path class="fz-seg" d="M232 96 C300 80 356 150 364 250 C370 320 352 372 330 380 C300 360 262 352 244 344 C240 260 232 170 232 96 Z"/><path class="fz-seg" d="M188 96 C120 80 64 150 56 250 C50 320 68 372 90 380 C120 360 158 352 176 344 C180 260 188 170 188 96 Z"/><g class="fz-roi"><path d="M270 150 v-14 h14 M346 136 h14 v14 M360 220 v14 h-14 M284 234 h-14 v-14"/></g></g><rect class="fz-band" x="0" y="0" width="600" height="120"/></svg><svg class="fz fz-bio" viewBox="0 0 600 900" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path id="fzm0" class="fz-trail" style="opacity:0.55" d="M-40 250 L-37 250 L-34 249.9 L-30.9 249.8 L-27.9 249.7 L-24.8 249.5 L-21.7 249.3 L-18.6 249 L-15.4 248.7 L-12.2 248.4 L-8.9 248 L-5.6 247.6 L-2.2 247.2 L1.2 246.8 L4.7 246.3 L8.3 245.9 L11.9 245.4 L15.6 244.9 L19.4 244.4 L23.2 243.9 L27.1 243.4 L31.1 242.9 L35.1 242.4 L39.3 241.9 L43.4 241.4 L47.7 241 L52 240.6 L56.3 240.2 L60.8 239.8 L65.2 239.5 L69.7 239.1 L74.3 238.9 L78.9 238.6 L83.5 238.4 L88.1 238.3 L92.8 238.1 L97.5 238 L102.2 238 L106.9 238 L111.5 238 L116.2 238.1 L120.9 238.3 L125.5 238.4 L130.2 238.6 L134.7 238.9 L139.3 239.1 L143.8 239.5 L148.3 239.8 L152.7 240.2 L157 240.6 L161.3 241 L165.6 241.4 L169.8 241.9 L173.9 242.4 L177.9 242.9 L181.9 243.4 L185.8 243.9 L189.6 244.4 L193.4 244.9 L197.1 245.4 L200.7 245.9 L204.3 246.3 L207.8 246.8 L211.2 247.2 L214.6 247.6 L217.9 248 L221.2 248.4 L224.4 248.7 L227.6 249 L230.7 249.3 L233.8 249.5 L236.9 249.7 L240 249.8 L243 249.9 L246 250 L249 250 L252 250 L255.1 249.9 L258.1 249.8 L261.2 249.7 L264.2 249.5 L267.3 249.3 L270.5 249 L273.6 248.7 L276.9 248.4 L280.1 248 L283.5 247.6 L286.8 247.2 L290.3 246.8 L293.8 246.3 L297.3 245.9 L300.9 245.4 L304.6 244.9 L308.4 244.4 L312.2 243.9 L316.2 243.4 L320.1 242.9 L324.2 242.4 L328.3 241.9 L332.5 241.4 L336.7 241 L341 240.6 L345.4 240.2 L349.8 239.8 L354.2 239.5 L358.8 239.1 L363.3 238.9 L367.9 238.6 L372.5 238.4 L377.2 238.3 L381.8 238.1 L386.5 238 L391.2 238 L395.9 238 L400.6 238 L405.3 238.1 L409.9 238.3 L414.6 238.4 L419.2 238.6 L423.8 238.9 L428.3 239.1 L432.8 239.5 L437.3 239.8 L441.7 240.2 L446.1 240.6 L450.4 241 L454.6 241.4 L458.8 241.9 L462.9 242.4 L466.9 242.9 L470.9 243.4 L474.8 243.9 L478.7 244.4 L482.4 244.9 L486.1 245.4 L489.8 245.9 L493.3 246.3 L496.8 246.8 L500.3 247.2 L503.6 247.6 L506.9 248 L510.2 248.4 L513.4 248.7 L516.6 249 L519.7 249.3 L522.9 249.5 L525.9 249.7 L529 249.8 L532 249.9 L535 250 L538.1 250 L541.1 250 L544.1 249.9 L547.1 249.8 L550.2 249.7 L553.3 249.5 L556.4 249.3 L559.5 249 L562.7 248.7 L565.9 248.4 L569.2 248 L572.5 247.6 L575.9 247.2 L579.3 246.8 L582.8 246.3 L586.3 245.9 L590 245.4 L593.7 244.9 L597.4 244.4 L601.3 243.9 L605.2 243.4 L609.2 242.9 L613.2 242.4 L617.3 241.9 L621.5 241.4 L625.7 241 L630 240.6 L634.4 240.2 L638.8 239.8 L643.3 239.5 L647.8 239.1 L652.3 238.9 L656.9 238.6 L661.5 238.4 L666.2 238.3 L670.9 238.1 L675.5 238 L680.2 238 L684.9 238 L689.6 238 L694.3 238.1 L698.9 238.3 L703.6 238.4 L708.2 238.6 L712.8 238.9 L717.3 239.1 L721.9 239.5 L726.3 239.8 L730.7 240.2 L735.1 240.6 L739.4 241 L743.6 241.4 L747.8 241.9 L751.9 242.4 L756 242.9 L760 243.4 L763.9 243.9 L767.7 244.4 L771.5 244.9 L775.2 245.4 L778.8 245.9 L782.3 246.3 L785.8 246.8 L789.3 247.2 L792.7 247.6 L796 248 L799.2 248.4 L802.5 248.7 L805.6 249 L808.8 249.3 L811.9 249.5 L815 249.7 L818 249.8 L821 249.9 L824.1 250 L827.1 250 L830.1 250 L833.1 249.9 L836.2 249.8 L839.2 249.7 L842.3 249.5 L845.4 249.3 L848.5 249 L851.7 248.7 L854.9 248.4 L858.2 248 L861.5 247.6 L864.9 247.2 L868.3 246.8 L871.8 246.3 L875.4 245.9"/><circle class="fz-mk" r="6"><animateMotion dur="11s" repeatCount="indefinite"><mpath href="#fzm0"/></animateMotion></circle><path id="fzm1" class="fz-trail" style="opacity:0.7" d="M-40 400 L-39 399.9 L-38 399.5 L-36.9 398.9 L-35.8 398.1 L-34.6 397.1 L-33.3 395.8 L-31.8 394.3 L-30.3 392.6 L-28.6 390.8 L-26.7 388.8 L-24.7 386.6 L-22.5 384.2 L-20 381.8 L-17.4 379.2 L-14.5 376.5 L-11.4 373.8 L-8.1 371 L-4.6 368.1 L-0.8 365.3 L3.3 362.4 L7.5 359.6 L12 356.9 L16.8 354.1 L21.7 351.5 L26.9 349 L32.3 346.6 L37.9 344.3 L43.6 342.2 L49.5 340.3 L55.6 338.5 L61.9 336.9 L68.2 335.5 L74.7 334.4 L81.2 333.5 L87.8 332.7 L94.5 332.3 L101.2 332 L107.9 332 L114.6 332.3 L121.2 332.7 L127.8 333.5 L134.4 334.4 L140.8 335.5 L147.2 336.9 L153.4 338.5 L159.5 340.3 L165.4 342.2 L171.2 344.3 L176.7 346.6 L182.1 349 L187.3 351.5 L192.3 354.1 L197 356.9 L201.5 359.6 L205.8 362.4 L209.8 365.3 L213.6 368.1 L217.1 371 L220.5 373.8 L223.6 376.5 L226.4 379.2 L229.1 381.8 L231.5 384.2 L233.7 386.6 L235.8 388.8 L237.6 390.8 L239.3 392.6 L240.9 394.3 L242.3 395.8 L243.6 397.1 L244.8 398.1 L245.9 398.9 L247 399.5 L248 399.9 L249 400 L250 399.9 L251.1 399.5 L252.1 398.9 L253.3 398.1 L254.5 397.1 L255.8 395.8 L257.2 394.3 L258.7 392.6 L260.4 390.8 L262.3 388.8 L264.3 386.6 L266.6 384.2 L269 381.8 L271.6 379.2 L274.5 376.5 L277.6 373.8 L280.9 371 L284.5 368.1 L288.3 365.3 L292.3 362.4 L296.6 359.6 L301.1 356.9 L305.8 354.1 L310.8 351.5 L315.9 349 L321.3 346.6 L326.9 344.3 L332.6 342.2 L338.6 340.3 L344.7 338.5 L350.9 336.9 L357.2 335.5 L363.7 334.4 L370.2 333.5 L376.8 332.7 L383.5 332.3 L390.2 332 L396.9 332 L403.6 332.3 L410.2 332.7 L416.9 333.5 L423.4 334.4 L429.9 335.5 L436.2 336.9 L442.4 338.5 L448.5 340.3 L454.4 342.2 L460.2 344.3 L465.8 346.6 L471.2 349 L476.3 351.5 L481.3 354.1 L486 356.9 L490.5 359.6 L494.8 362.4 L498.8 365.3 L502.6 368.1 L506.2 371 L509.5 373.8 L512.6 376.5 L515.4 379.2 L518.1 381.8 L520.5 384.2 L522.7 386.6 L524.8 388.8 L526.6 390.8 L528.3 392.6 L529.9 394.3 L531.3 395.8 L532.6 397.1 L533.8 398.1 L534.9 398.9 L536 399.5 L537 399.9 L538.1 400 L539.1 399.9 L540.1 399.5 L541.2 398.9 L542.3 398.1 L543.5 397.1 L544.8 395.8 L546.2 394.3 L547.8 392.6 L549.5 390.8 L551.3 388.8 L553.4 386.6 L555.6 384.2 L558 381.8 L560.7 379.2 L563.5 376.5 L566.6 373.8 L569.9 371 L573.5 368.1 L577.3 365.3 L581.3 362.4 L585.6 359.6 L590.1 356.9 L594.8 354.1 L599.8 351.5 L605 349 L610.3 346.6 L615.9 344.3 L621.7 342.2 L627.6 340.3 L633.7 338.5 L639.9 336.9 L646.3 335.5 L652.7 334.4 L659.3 333.5 L665.9 332.7 L672.5 332.3 L679.2 332 L685.9 332 L692.6 332.3 L699.3 332.7 L705.9 333.5 L712.4 334.4 L718.9 335.5 L725.2 336.9 L731.5 338.5 L737.5 340.3 L743.5 342.2 L749.2 344.3 L754.8 346.6 L760.2 349 L765.4 351.5 L770.3 354.1 L775 356.9 L779.5 359.6 L783.8 362.4 L787.9 365.3 L791.6 368.1 L795.2 371 L798.5 373.8 L801.6 376.5 L804.5 379.2 L807.1 381.8 L809.5 384.2 L811.8 386.6 L813.8 388.8 L815.7 390.8 L817.4 392.6 L818.9 394.3 L820.3 395.8 L821.6 397.1 L822.8 398.1 L824 398.9 L825 399.5 L826.1 399.9 L827.1 400 L828.1 399.9 L829.1 399.5 L830.2 398.9 L831.3 398.1 L832.5 397.1 L833.8 395.8 L835.2 394.3 L836.8 392.6 L838.5 390.8 L840.3 388.8 L842.4 386.6 L844.6 384.2 L847 381.8 L849.7 379.2 L852.5 376.5"/><circle class="fz-mk" r="6"><animateMotion dur="12s" repeatCount="indefinite"><mpath href="#fzm1"/></animateMotion></circle><path id="fzm2" class="fz-trail" style="opacity:0.9" d="M-40 560 L-41.5 559.8 L-43 559.1 L-44.4 558.1 L-45.6 556.6 L-46.8 554.6 L-47.8 552.3 L-48.5 549.6 L-49 546.6 L-49.3 543.2 L-49.2 539.5 L-48.8 535.5 L-48.1 531.2 L-47 526.7 L-45.5 522 L-43.7 517.2 L-41.4 512.2 L-38.7 507.1 L-35.5 501.9 L-31.9 496.7 L-27.9 491.5 L-23.5 486.4 L-18.6 481.3 L-13.3 476.4 L-7.6 471.6 L-1.5 467 L4.9 462.6 L11.8 458.5 L18.9 454.6 L26.4 451.1 L34.1 447.8 L42.2 445 L50.4 442.5 L58.8 440.4 L67.4 438.6 L76.1 437.4 L84.9 436.5 L93.8 436.1 L102.7 436.1 L111.5 436.5 L120.3 437.4 L129.1 438.6 L137.6 440.4 L146.1 442.5 L154.3 445 L162.3 447.8 L170.1 451.1 L177.5 454.6 L184.7 458.5 L191.5 462.6 L198 467 L204.1 471.6 L209.8 476.4 L215.1 481.3 L220 486.4 L224.4 491.5 L228.4 496.7 L232 501.9 L235.1 507.1 L237.8 512.2 L240.1 517.2 L242 522 L243.5 526.7 L244.6 531.2 L245.3 535.5 L245.7 539.5 L245.7 543.2 L245.5 546.6 L245 549.6 L244.2 552.3 L243.2 554.6 L242.1 556.6 L240.8 558.1 L239.4 559.1 L238 559.8 L236.5 560 L235 559.8 L233.5 559.1 L232.1 558.1 L230.8 556.6 L229.7 554.6 L228.7 552.3 L228 549.6 L227.4 546.6 L227.2 543.2 L227.2 539.5 L227.6 535.5 L228.3 531.2 L229.4 526.7 L230.9 522 L232.8 517.2 L235.1 512.2 L237.8 507.1 L240.9 501.9 L244.5 496.7 L248.5 491.5 L253 486.4 L257.8 481.3 L263.1 476.4 L268.8 471.6 L274.9 467 L281.4 462.6 L288.2 458.5 L295.4 454.6 L302.8 451.1 L310.6 447.8 L318.6 445 L326.8 442.5 L335.3 440.4 L343.9 438.6 L352.6 437.4 L361.4 436.5 L370.3 436.1 L379.1 436.1 L388 436.5 L396.8 437.4 L405.5 438.6 L414.1 440.4 L422.5 442.5 L430.8 445 L438.8 447.8 L446.5 451.1 L454 454.6 L461.2 458.5 L468 462.6 L474.5 467 L480.6 471.6 L486.3 476.4 L491.5 481.3 L496.4 486.4 L500.9 491.5 L504.9 496.7 L508.4 501.9 L511.6 507.1 L514.3 512.2 L516.6 517.2 L518.5 522 L519.9 526.7 L521 531.2 L521.8 535.5 L522.1 539.5 L522.2 543.2 L521.9 546.6 L521.4 549.6 L520.7 552.3 L519.7 554.6 L518.6 556.6 L517.3 558.1 L515.9 559.1 L514.4 559.8 L512.9 560 L511.4 559.8 L510 559.1 L508.6 558.1 L507.3 556.6 L506.1 554.6 L505.2 552.3 L504.4 549.6 L503.9 546.6 L503.7 543.2 L503.7 539.5 L504.1 535.5 L504.8 531.2 L505.9 526.7 L507.4 522 L509.2 517.2 L511.5 512.2 L514.2 507.1 L517.4 501.9 L521 496.7 L525 491.5 L529.4 486.4 L534.3 481.3 L539.6 476.4 L545.3 471.6 L551.4 467 L557.8 462.6 L564.7 458.5 L571.8 454.6 L579.3 451.1 L587.1 447.8 L595.1 445 L603.3 442.5 L611.7 440.4 L620.3 438.6 L629 437.4 L637.9 436.5 L646.7 436.1 L655.6 436.1 L664.5 436.5 L673.3 437.4 L682 438.6 L690.6 440.4 L699 442.5 L707.2 445 L715.2 447.8 L723 451.1 L730.5 454.6 L737.6 458.5 L744.5 462.6 L750.9 467 L757 471.6 L762.7 476.4 L768 481.3 L772.9 486.4 L777.3 491.5 L781.3 496.7 L784.9 501.9 L788.1 507.1 L790.8 512.2 L793.1 517.2 L794.9 522 L796.4 526.7 L797.5 531.2 L798.2 535.5 L798.6 539.5 L798.6 543.2 L798.4 546.6 L797.9 549.6 L797.1 552.3 L796.2 554.6 L795 556.6 L793.7 558.1 L792.3 559.1 L790.9 559.8 L789.4 560 L787.9 559.8 L786.4 559.1 L785 558.1 L783.7 556.6 L782.6 554.6 L781.6 552.3 L780.9 549.6 L780.4 546.6 L780.1 543.2 L780.2 539.5 L780.5 535.5 L781.3 531.2 L782.4 526.7 L783.8 522 L785.7 517.2"/><circle class="fz-mk" r="6"><animateMotion dur="13s" repeatCount="indefinite"><mpath href="#fzm2"/></animateMotion></circle><path id="fzm3" class="fz-trail" style="opacity:0.6" d="M-40 640 L-40.5 639.8 L-41 639.3 L-41.4 638.4 L-41.7 637.2 L-41.9 635.7 L-42 633.8 L-41.9 631.6 L-41.6 629.2 L-41.1 626.4 L-40.3 623.5 L-39.3 620.2 L-38 616.8 L-36.4 613.2 L-34.5 609.4 L-32.3 605.5 L-29.7 601.4 L-26.8 597.3 L-23.6 593.1 L-20 589 L-16 584.8 L-11.7 580.6 L-7.1 576.6 L-2.1 572.6 L3.2 568.7 L8.9 565 L14.8 561.5 L21 558.1 L27.5 555 L34.2 552.2 L41.2 549.5 L48.4 547.2 L55.7 545.2 L63.2 543.5 L70.9 542.1 L78.6 541.1 L86.4 540.4 L94.3 540 L102.2 540 L110 540.4 L117.8 541.1 L125.6 542.1 L133.2 543.5 L140.7 545.2 L148.1 547.2 L155.3 549.5 L162.2 552.2 L169 555 L175.5 558.1 L181.7 561.5 L187.6 565 L193.2 568.7 L198.5 572.6 L203.5 576.6 L208.2 580.6 L212.5 584.8 L216.4 589 L220 593.1 L223.3 597.3 L226.2 601.4 L228.7 605.5 L230.9 609.4 L232.9 613.2 L234.4 616.8 L235.7 620.2 L236.8 623.5 L237.5 626.4 L238 629.2 L238.3 631.6 L238.4 633.8 L238.4 635.7 L238.2 637.2 L237.8 638.4 L237.4 639.3 L237 639.8 L236.5 640 L236 639.8 L235.5 639.3 L235.1 638.4 L234.8 637.2 L234.6 635.7 L234.5 633.8 L234.6 631.6 L234.9 629.2 L235.4 626.4 L236.2 623.5 L237.2 620.2 L238.5 616.8 L240.1 613.2 L242 609.4 L244.2 605.5 L246.8 601.4 L249.7 597.3 L252.9 593.1 L256.5 589 L260.5 584.8 L264.8 580.6 L269.4 576.6 L274.4 572.6 L279.7 568.7 L285.3 565 L291.2 561.5 L297.5 558.1 L303.9 555 L310.7 552.2 L317.7 549.5 L324.8 547.2 L332.2 545.2 L339.7 543.5 L347.3 542.1 L355.1 541.1 L362.9 540.4 L370.8 540 L378.6 540 L386.5 540.4 L394.3 541.1 L402 542.1 L409.7 543.5 L417.2 545.2 L424.6 547.2 L431.7 549.5 L438.7 552.2 L445.4 555 L451.9 558.1 L458.1 561.5 L464.1 565 L469.7 568.7 L475 572.6 L480 576.6 L484.6 580.6 L488.9 584.8 L492.9 589 L496.5 593.1 L499.7 597.3 L502.6 601.4 L505.2 605.5 L507.4 609.4 L509.3 613.2 L510.9 616.8 L512.2 620.2 L513.2 623.5 L514 626.4 L514.5 629.2 L514.8 631.6 L514.9 633.8 L514.8 635.7 L514.6 637.2 L514.3 638.4 L513.9 639.3 L513.4 639.8 L512.9 640 L512.4 639.8 L512 639.3 L511.5 638.4 L511.2 637.2 L511 635.7 L510.9 633.8 L511.1 631.6 L511.4 629.2 L511.9 626.4 L512.6 623.5 L513.6 620.2 L514.9 616.8 L516.5 613.2 L518.4 609.4 L520.7 605.5 L523.2 601.4 L526.1 597.3 L529.4 593.1 L533 589 L536.9 584.8 L541.2 580.6 L545.9 576.6 L550.8 572.6 L556.1 568.7 L561.8 565 L567.7 561.5 L573.9 558.1 L580.4 555 L587.1 552.2 L594.1 549.5 L601.3 547.2 L608.6 545.2 L616.2 543.5 L623.8 542.1 L631.5 541.1 L639.4 540.4 L647.2 540 L655.1 540 L662.9 540.4 L670.8 541.1 L678.5 542.1 L686.1 543.5 L693.7 545.2 L701 547.2 L708.2 549.5 L715.2 552.2 L721.9 555 L728.4 558.1 L734.6 561.5 L740.5 565 L746.2 568.7 L751.5 572.6 L756.4 576.6 L761.1 580.6 L765.4 584.8 L769.3 589 L772.9 593.1 L776.2 597.3 L779.1 601.4 L781.6 605.5 L783.9 609.4 L785.8 613.2 L787.4 616.8 L788.7 620.2 L789.7 623.5 L790.4 626.4 L790.9 629.2 L791.2 631.6 L791.4 633.8 L791.3 635.7 L791.1 637.2 L790.8 638.4 L790.3 639.3 L789.9 639.8 L789.4 640 L788.9 639.8 L788.4 639.3 L788 638.4 L787.7 637.2 L787.5 635.7 L787.4 633.8 L787.5 631.6 L787.8 629.2 L788.3 626.4 L789.1 623.5 L790.1 620.2 L791.4 616.8 L793 613.2 L794.9 609.4 L797.1 605.5"/><circle class="fz-mk" r="6"><animateMotion dur="14s" repeatCount="indefinite"><mpath href="#fzm3"/></animateMotion></circle><path class="fz-grf-a" d="M90 819.9 L94.4 819.4 L98.8 818.1 L103.2 816.1 L107.6 812.9 L112 808 L116.4 800.6 L120.8 790.3 L125.2 777.1 L129.6 762.1 L134 747.5 L138.4 735.9 L142.8 729.7 L147.2 729.8 L151.6 735.2 L156 743.8 L160.4 752.8 L164.8 760.1 L169.2 764.6 L173.6 766.4 L178 765.9 L182.4 764 L186.8 761.1 L191.2 757.9 L195.6 754.5 L200 751.1 L204.4 747.6 L208.8 744.2 L213.2 740.9 L217.6 737.7 L222 734.5 L226.4 731.4 L230.8 728.5 L235.2 725.6 L239.6 722.9 L244 720.2 L248.4 717.7 L252.8 715.4 L257.2 713.2 L261.6 711.1 L266 709.3 L270.4 707.5 L274.8 706 L279.2 704.6 L283.6 703.4 L288 702.4 L292.4 701.5 L296.8 700.9 L301.2 700.4 L305.6 700.1 L310 700 L314.4 700.1 L318.8 700.4 L323.2 700.9 L327.6 701.5 L332 702.4 L336.4 703.4 L340.8 704.6 L345.2 706 L349.6 707.5 L354 709.3 L358.4 711.1 L362.8 713.2 L367.2 715.4 L371.6 717.7 L376 720.2 L380.4 722.9 L384.8 725.6 L389.2 728.5 L393.6 731.4 L398 734.5 L402.4 737.7 L406.8 740.9 L411.2 744.3 L415.6 747.6 L420 751.1 L424.4 754.6 L428.8 758.1 L433.2 761.6 L437.6 765.2 L442 768.7 L446.4 772.3 L450.8 775.8 L455.2 779.3 L459.6 782.7 L464 786.1 L468.4 789.4 L472.8 792.6 L477.2 795.7 L481.6 798.8 L486 801.7 L490.4 804.4 L494.8 807.1 L499.2 809.5 L503.6 811.8 L508 813.8 L512.4 815.7 L516.8 817.3 L521.2 818.6 L525.6 819.5 L530 820 L530 820 L90 820 Z"/><path class="fz-grf" d="M90 819.9 L94.4 819.4 L98.8 818.1 L103.2 816.1 L107.6 812.9 L112 808 L116.4 800.6 L120.8 790.3 L125.2 777.1 L129.6 762.1 L134 747.5 L138.4 735.9 L142.8 729.7 L147.2 729.8 L151.6 735.2 L156 743.8 L160.4 752.8 L164.8 760.1 L169.2 764.6 L173.6 766.4 L178 765.9 L182.4 764 L186.8 761.1 L191.2 757.9 L195.6 754.5 L200 751.1 L204.4 747.6 L208.8 744.2 L213.2 740.9 L217.6 737.7 L222 734.5 L226.4 731.4 L230.8 728.5 L235.2 725.6 L239.6 722.9 L244 720.2 L248.4 717.7 L252.8 715.4 L257.2 713.2 L261.6 711.1 L266 709.3 L270.4 707.5 L274.8 706 L279.2 704.6 L283.6 703.4 L288 702.4 L292.4 701.5 L296.8 700.9 L301.2 700.4 L305.6 700.1 L310 700 L314.4 700.1 L318.8 700.4 L323.2 700.9 L327.6 701.5 L332 702.4 L336.4 703.4 L340.8 704.6 L345.2 706 L349.6 707.5 L354 709.3 L358.4 711.1 L362.8 713.2 L367.2 715.4 L371.6 717.7 L376 720.2 L380.4 722.9 L384.8 725.6 L389.2 728.5 L393.6 731.4 L398 734.5 L402.4 737.7 L406.8 740.9 L411.2 744.3 L415.6 747.6 L420 751.1 L424.4 754.6 L428.8 758.1 L433.2 761.6 L437.6 765.2 L442 768.7 L446.4 772.3 L450.8 775.8 L455.2 779.3 L459.6 782.7 L464 786.1 L468.4 789.4 L472.8 792.6 L477.2 795.7 L481.6 798.8 L486 801.7 L490.4 804.4 L494.8 807.1 L499.2 809.5 L503.6 811.8 L508 813.8 L512.4 815.7 L516.8 817.3 L521.2 818.6 L525.6 819.5 L530 820"/><line class="fz-plate" x1="60" y1="820" x2="560" y2="820"/></svg><div class="fz-seam"></div></div>
     <canvas id="neural" aria-hidden="true"></canvas>
     <svg class="xr-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs>
 <filter id="xrGlow" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
@@ -1107,13 +1137,17 @@
                     if (n.y < 0 || n.y > h) n.vy *= -1;
                 });
                 const L = links();
+                const col = (x, a) => {           // cyan (imaging, left) -> amber (biomechanics, right)
+                    const t = Math.max(0, Math.min(1, x / w));
+                    const r = Math.round(125 + (246 - 125) * t), g = Math.round(211 + (164 - 211) * t), b = Math.round(252 + (69 - 252) * t);
+                    return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+                };
                 L.forEach(([i, j, d]) => {
-                    ctx.strokeStyle = 'rgba(167,139,250,' + (0.26 * (1 - d / LINK)).toFixed(3) + ')';
+                    ctx.strokeStyle = col((nodes[i].x + nodes[j].x) / 2, (0.24 * (1 - d / LINK)).toFixed(3));
                     ctx.lineWidth = 1;
                     ctx.beginPath(); ctx.moveTo(nodes[i].x, nodes[i].y); ctx.lineTo(nodes[j].x, nodes[j].y); ctx.stroke();
                 });
-                ctx.fillStyle = 'rgba(196,181,253,.75)';
-                nodes.forEach(n => { ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill(); });
+                nodes.forEach(n => { ctx.fillStyle = col(n.x, .75); ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill(); });
                 if (reduce) return;
                 if (t - last > 260 && L.length) {
                     const [i, j] = L[Math.floor(Math.random() * L.length)];
@@ -1125,7 +1159,7 @@
                     const A = nodes[s.a], B = nodes[s.b];
                     const x = A.x + (B.x - A.x) * s.p, y = A.y + (B.y - A.y) * s.p;
                     const g = ctx.createRadialGradient(x, y, 0, x, y, 7);
-                    g.addColorStop(0, 'rgba(125,211,252,.95)'); g.addColorStop(1, 'rgba(167,139,250,0)');
+                    g.addColorStop(0, col(x, .95)); g.addColorStop(1, col(x, 0));
                     ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
                 });
                 raf = requestAnimationFrame(draw);
