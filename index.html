@@ -561,6 +561,16 @@
             .menu a { padding: 8px 11px; font-size: .84rem; }
             .menu a i { display: inline-block; }
         }
+
+        /* ---------- Hero: text far left, photo far right, centre left open for the background shapes ---------- */
+        @media (min-width: 1081px) {
+            .hero > .container.hero-grid { max-width: none; width: 100%; padding: 0 clamp(40px, 5vw, 100px);
+                                           grid-template-columns: auto minmax(0, 1fr) auto; gap: 0; }
+            .hero-text { grid-column: 1; max-width: 560px; }
+            .hero-lead { max-width: 470px; }
+            .hero-visual { grid-column: 3; justify-self: end; margin-right: 30px; }
+            .hero-visual .scan { width: clamp(270px, 25vw, 400px); }
+        }
 </style>
 </head>
 <body>
@@ -1241,7 +1251,7 @@
                 // every shape forms in the centre of the page
                 const side = 0, mw = W;
                 const XS = [.5, .5, .5];                                  // always the centre of the page
-                const hPx = Math.min(H * (W > 600 ? .84 : .62), 780), cy = H / 2;
+                const hPx = Math.min(H * (W > 600 ? (W < 1600 ? .64 : .72) : .62), 700), cy = H / 2 + (W > 1080 ? 20 : 0);
                 targets = SHAPES.map((s, i) => sample(s, hPx).map(([x, y]) => [x + side + mw * XS[i], y + cy]));
                 N = Math.min(Math.max(...targets.map(t => t.length)) + Math.round((W * H) / 4200), W > 600 ? 1700 : 700);
                 parts = Array.from({ length: N }, () => ({
